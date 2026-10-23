@@ -847,11 +847,11 @@ function createLeafletInstance() {
   const marker = L.marker([lat, lng], { icon: customIcon }).addTo(map);
   marker.bindPopup(`
     <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px;">
-      <strong style="font-size: 1.15rem; color: #2B1D16; font-family: 'Playfair Display', serif;">Glow Spa</strong><br />
-      <span style="font-size: 0.85rem; color: #4A5D52;">Office No. 2, 1st Floor, Above Onyx Italian Marble Store</span><br />
-      <span style="font-size: 0.82rem; color: #C5A880; font-weight: 600;">Ram Mandir Service Road, Kalaburagi</span><br />
+      <strong style="font-size: 1.15rem; color: #20140E; font-family: 'Playfair Display', serif;">Glow Spa</strong><br />
+      <span style="font-size: 0.85rem; color: #3C4E44;">Office No. 2, 1st Floor, Above Onyx Italian Marble Store</span><br />
+      <span style="font-size: 0.82rem; color: #8C5E1E; font-weight: 700;">Ram Mandir Service Road, Kalaburagi</span><br />
       <div style="margin-top: 8px;">
-        <a href="https://maps.google.com/?q=${lat},${lng}" target="_blank" style="color: #25D366; font-weight: bold; font-size: 0.85rem; text-decoration: underline;">
+        <a href="https://maps.google.com/?q=${lat},${lng}" target="_blank" style="color: #0E776A; font-weight: bold; font-size: 0.85rem; text-decoration: underline;">
           Navigate in Google Maps &rarr;
         </a>
       </div>
