@@ -820,21 +820,21 @@ function createLeafletInstance() {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  // Custom Gold Lotus Pin
+  // Custom Lotus Botanical Pin
   const customIcon = L.divIcon({
     className: 'custom-leaflet-lotus-marker',
     html: `
       <div style="
         width: 44px; 
         height: 44px; 
-        background: #2B1D16; 
+        background: #1C2618; 
         border-radius: 50%; 
-        border: 3px solid #C5A880; 
+        border: 3px solid #6E844E; 
         display: flex; 
         align-items: center; 
         justify-content: center; 
-        box-shadow: 0 4px 20px rgba(43,29,22,0.4);">
-        <svg width="24" height="24" viewBox="0 0 48 48" fill="#C5A880">
+        box-shadow: 0 4px 20px rgba(28,38,24,0.45);">
+        <svg width="24" height="24" viewBox="0 0 48 48" fill="#D4AF37">
           <path d="M24 4C22.2 11.2 17.5 17.8 11 21.5C17.5 23.5 22.8 28 24 35.5C25.2 28 30.5 23.5 37 21.5C30.5 17.8 25.8 11.2 24 4Z" />
           <path d="M24 35.5C19.2 40.5 13 43 5 43C11 45.5 17.5 45.5 24 43C30.5 45.5 37 45.5 43 43C35 43 28.8 40.5 24 35.5Z" opacity="0.8" />
         </svg>
@@ -847,9 +847,9 @@ function createLeafletInstance() {
   const marker = L.marker([lat, lng], { icon: customIcon }).addTo(map);
   marker.bindPopup(`
     <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px;">
-      <strong style="font-size: 1.15rem; color: #20140E; font-family: 'Playfair Display', serif;">Glow Spa</strong><br />
-      <span style="font-size: 0.85rem; color: #3C4E44;">Office No. 2, 1st Floor, Above Onyx Italian Marble Store</span><br />
-      <span style="font-size: 0.82rem; color: #8C5E1E; font-weight: 700;">Ram Mandir Service Road, Kalaburagi</span><br />
+      <strong style="font-size: 1.15rem; color: #1C2618; font-family: 'Playfair Display', serif;">Glow Spa</strong><br />
+      <span style="font-size: 0.85rem; color: #3E5037;">Office No. 2, 1st Floor, Above Onyx Italian Marble Store</span><br />
+      <span style="font-size: 0.82rem; color: #556D3B; font-weight: 700;">Ram Mandir Service Road, Kalaburagi</span><br />
       <div style="margin-top: 8px;">
         <a href="https://maps.google.com/?q=${lat},${lng}" target="_blank" style="color: #0E776A; font-weight: bold; font-size: 0.85rem; text-decoration: underline;">
           Navigate in Google Maps &rarr;
@@ -1142,4 +1142,180 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-console.log('Glow Spa Interactive Application initialized.');
+// =========================================================
+// 15. LUXURY PARALLAX & MICRO-INTERACTION ENGINE
+// =========================================================
+
+// A. Realtime Header Reading & Scroll Depth Progress
+const progressBar = document.getElementById('scrollProgress');
+function updateScrollProgress() {
+  if (!progressBar) return;
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = `${progress}%`;
+}
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
+lenis.on('scroll', updateScrollProgress);
+
+// B. Ambient Botanical Parallax Floating Mesh Orbs
+const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isDesktop = window.innerWidth > 768;
+
+if (isDesktop && !isReducedMotion) {
+  const orb1 = document.querySelector('.ambient-parallax-orb.orb-1');
+  const orb2 = document.querySelector('.ambient-parallax-orb.orb-2');
+  const orb3 = document.querySelector('.ambient-parallax-orb.orb-3');
+
+  if (orb1) {
+    gsap.to(orb1, {
+      y: -140,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1.2
+      }
+    });
+  }
+
+  if (orb2) {
+    gsap.to(orb2, {
+      y: -240,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1.6
+      }
+    });
+  }
+
+  if (orb3) {
+    gsap.to(orb3, {
+      y: -180,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1.4
+      }
+    });
+  }
+
+  // C. Sanctuary Masonry Gallery Vertical Parallax Depth
+  const masonryItems = document.querySelectorAll('.masonry-img-item');
+  masonryItems.forEach((item, index) => {
+    const offset = (index % 2 === 0 ? 30 : -30);
+    gsap.to(item, {
+      y: offset,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#sanctuary',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.2
+      }
+    });
+  });
+
+  const collageBadge = document.querySelector('.collage-badge-card');
+  if (collageBadge) {
+    gsap.to(collageBadge, {
+      y: -40,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#sanctuary',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1
+      }
+    });
+  }
+}
+
+// D. Reveal-on-Scroll Observer with Graceful Stagger
+function initScrollReveals() {
+  const targetSelectors = [
+    '.section-header',
+    '.top-service-card',
+    '.service-card',
+    '.space-card',
+    '.blog-card',
+    '.benefit-card',
+    '.hygiene-item',
+    '.review-bubble',
+    '.locality-card',
+    '.faq-item',
+    '.collage-right-content',
+    '.booking-card-wrapper',
+    '.about-intro-grid'
+  ];
+
+  const targets = document.querySelectorAll(targetSelectors.join(', '));
+  targets.forEach(el => el.classList.add('reveal-on-scroll'));
+
+  if ('IntersectionObserver' in window && !isReducedMotion) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    targets.forEach(el => {
+      const parentGrid = el.closest(
+        '.top-services-grid, .treatment-catalog-grid, .space-grid, .blogs-masonry-grid, .benefits-quad-grid, .hygiene-grid, .localities-grid'
+      );
+      if (parentGrid) {
+        const siblings = Array.from(parentGrid.children);
+        const itemIdx = siblings.indexOf(el);
+        if (itemIdx > 0) {
+          el.classList.add(`reveal-delay-${(itemIdx % 4) + 1}`);
+        }
+      }
+      observer.observe(el);
+    });
+  } else {
+    targets.forEach(el => el.classList.add('is-revealed'));
+  }
+}
+
+// Initialize reveals
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScrollReveals);
+} else {
+  initScrollReveals();
+}
+
+// Re-observe dynamic items after data rendering
+setTimeout(initScrollReveals, 350);
+
+// E. 3D Card Magnetic Micro-Interactions (Desktop)
+if (window.innerWidth > 1024 && !isReducedMotion) {
+  const tiltCards = document.querySelectorAll('.top-service-card, .space-card, .blog-card');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -3.5;
+      const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 3.5;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+console.log('Glow Spa Interactive Application initialized with Lotus Botanical Luxury Theme.');
+
