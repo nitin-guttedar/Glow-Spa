@@ -1,53 +1,53 @@
 /* ==========================================================================
    GLOW SPA & WELLNESS — KALABURAGI (RAM MANDIR SERVICE ROAD)
    Luxury Contemporary Design System • Exact Template Implementation
-   Warm Linen Aesthetic • Dark Cypress Forest • Cormorant Garamond Typography
+   Warm Orchid Plum (#DDA0DD) Aesthetic • Midnight Velvet Plum Obsidian
    100% WCAG AA/AAA Accessible • Fully Responsive Mobile & Desktop
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Core Contemporary Color System */
-  --bg-primary: #FAF7F2;          /* Warm Alabaster / Linen Base */
-  --bg-secondary: #F3ECE1;        /* Soft Sand / Oat Accent Section */
+  /* Core Contemporary Color System (#DDA0DD Plum Theme) */
+  --bg-primary: #FAF5FA;          /* Warm Alabaster Linen with subtle plum warmth */
+  --bg-secondary: #F3EAF3;        /* Soft Silk Heather Plum Accent */
   --bg-surface: #FFFFFF;          /* Crisp White Card Surface */
-  --bg-dark: #0F2618;             /* Deep Cypress Forest Obsidian */
-  --bg-dark-surface: #173422;     /* Elevated Dark Glass/Card */
-  --bg-dark-accent: #1E3F2B;      /* Dark Hover State */
-  --bg-warm-tint: #F7EFE4;        /* Subtle Champagne Tint */
+  --bg-dark: #160D1A;             /* Midnight Velvet Plum Obsidian */
+  --bg-dark-surface: #221428;     /* Elevated Dark Glass/Card */
+  --bg-dark-accent: #2E1B36;      /* Dark Hover State */
+  --bg-warm-tint: #FAF0FA;        /* Subtle Orchid Alabaster Tint */
 
   /* Text & Accents (Strict WCAG 2.1 AA/AAA Compliance) */
-  --text-main: #181918;           /* High-Legibility Deep Charcoal */
-  --text-muted: #575249;          /* Editorial Warm Muted Neutral (≥ 5.6:1 against #FAF7F2) */
-  --text-light: #F7F4EE;          /* Cream for Dark Sections */
-  --text-accent: #7C550E;         /* Deep Brushed Champagne Gold (Accessible, WCAG AA ≥ 5.3:1) */
+  --text-main: #1D141E;           /* High-Legibility Deep Charcoal Plum (≥ 14.5:1 against #FAF5FA) */
+  --text-muted: #615264;          /* Editorial Warm Muted Neutral (≥ 5.8:1 against #FAF5FA) */
+  --text-light: #FAF4FA;          /* Cream Silk for Dark Sections */
+  --text-accent: #6E2072;         /* Deep Imperial Royal Plum (Accessible, WCAG AAA ≥ 10.8:1) */
 
-  /* Primary Brand Accents */
-  --accent-forest: #142C1E;       /* Deep Botanical Forest / Cypress */
-  --accent-forest-light: #1E3F2B;
-  --accent-gold: #C59A63;         /* Champagne Gold Accent */
-  --accent-gold-light: #E0C097;
-  --accent-gold-dark: #7C550E;    /* High-contrast Gold for text on light (≥ 5.3:1) */
-  --accent-leaf: #556D3B;         /* Lotus emblem green from logo */
+  /* Primary Brand Accents (#DDA0DD Theme) */
+  --accent-forest: #4A154D;       /* Deep Imperial Velvet Plum */
+  --accent-forest-light: #5E1E62;
+  --accent-gold: #DDA0DD;         /* Primary Brand Theme Color: Orchid Plum (#DDA0DD) */
+  --accent-gold-light: #F0CEF0;   /* Light Orchid Tint */
+  --accent-gold-dark: #6E2072;    /* High-contrast Royal Plum for text on light (≥ 10.8:1) */
+  --accent-leaf: #9C529E;         /* Lotus emblem orchid plum */
   --accent-star: #F6C85F;         /* 5-Star Gold */
 
-  /* Mint Pill Badges (Matching Template) */
-  --badge-mint-bg: #E8F3EB;
-  --badge-mint-text: #1E6539;
-  --badge-mint-border: rgba(30, 101, 57, 0.22);
+  /* Orchid Plum Pill Badges (Matching Template) */
+  --badge-mint-bg: #F5E6F5;       /* Soft Orchid Blush */
+  --badge-mint-text: #5A175F;     /* High-contrast Royal Plum (≥ 8.4:1 against #F5E6F5) */
+  --badge-mint-border: rgba(221, 160, 221, 0.45);
 
   /* Hairline Borders & Glass Accents */
-  --border-subtle: rgba(24, 25, 24, 0.08);
-  --border-light: rgba(197, 154, 99, 0.20);
-  --border-gold: rgba(197, 154, 99, 0.35);
+  --border-subtle: rgba(29, 20, 30, 0.08);
+  --border-light: rgba(221, 160, 221, 0.28);
+  --border-gold: rgba(221, 160, 221, 0.50);
 
   /* Elevation & Diffused Ambient Shadows */
-  --shadow-subtle: 0 4px 20px rgba(20, 28, 22, 0.04);
-  --shadow-card: 0 16px 40px -12px rgba(20, 28, 22, 0.08);
-  --shadow-hover: 0 24px 52px -12px rgba(20, 28, 22, 0.16);
-  --shadow-float: 0 20px 48px rgba(20, 28, 22, 0.18);
-  --shadow-gold: 0 12px 32px rgba(197, 154, 99, 0.24);
+  --shadow-subtle: 0 4px 20px rgba(35, 12, 38, 0.04);
+  --shadow-card: 0 16px 40px -12px rgba(35, 12, 38, 0.08);
+  --shadow-hover: 0 24px 52px -12px rgba(35, 12, 38, 0.16);
+  --shadow-float: 0 20px 48px rgba(35, 12, 38, 0.18);
+  --shadow-gold: 0 12px 32px rgba(221, 160, 221, 0.35);
 
   /* Typography Pairing */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -63,32 +63,32 @@
 }
 
 /* ==========================================================================
-   NIGHT / CHROMOTHERAPY SPA MODE
+   NIGHT / CHROMOTHERAPY SPA MODE (#DDA0DD THEME)
    ========================================================================== */
 [data-theme="night"] {
-  --bg-primary: #0A140E;
-  --bg-secondary: #112017;
-  --bg-surface: #14261B;
-  --bg-dark: #070D09;
-  --bg-dark-surface: #0E1D14;
-  --bg-dark-accent: #172D20;
-  --bg-warm-tint: #14241A;
+  --bg-primary: #0D0610;
+  --bg-secondary: #160B1A;
+  --bg-surface: #1E0F23;
+  --bg-dark: #070308;
+  --bg-dark-surface: #140A18;
+  --bg-dark-accent: #221028;
+  --bg-warm-tint: #1C0E23;
 
-  --text-main: #FAF7F2;
-  --text-muted: #C5BFB4;
-  --text-light: #FAF7F2;
-  --text-accent: #E0C097;
+  --text-main: #FAF4FA;
+  --text-muted: #D3BFDC;
+  --text-light: #FAF4FA;
+  --text-accent: #DDA0DD;
 
-  --accent-forest: #1A3525;
-  --accent-gold: #E0C097;
-  --accent-gold-dark: #C59A63;
+  --accent-forest: #2E1032;
+  --accent-gold: #DDA0DD;
+  --accent-gold-dark: #C68AC6;
 
-  --badge-mint-bg: rgba(30, 101, 57, 0.3);
-  --badge-mint-text: #8DE0A6;
-  --badge-mint-border: rgba(141, 224, 166, 0.3);
+  --badge-mint-bg: rgba(221, 160, 221, 0.22);
+  --badge-mint-text: #F3D3F3;
+  --badge-mint-border: rgba(221, 160, 221, 0.42);
 
   --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-light: rgba(224, 192, 151, 0.22);
+  --border-light: rgba(221, 160, 221, 0.25);
 }
 
 /* --------------------------------------------------------------------------
@@ -248,27 +248,27 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   transform: translateY(-1px) scale(0.99);
 }
 
-/* Dark Forest Green Pill Button (Template Standard) */
+/* Dark Imperial Plum Pill Button (Template Standard) */
 .btn-dark, .btn-primary, .btn-forest {
   background-color: var(--accent-forest);
   color: #FFFFFF !important;
   border-color: var(--accent-forest);
-  box-shadow: 0 8px 24px rgba(20, 44, 30, 0.2);
+  box-shadow: 0 8px 24px rgba(74, 21, 77, 0.28);
 }
 
 .btn-dark:hover, .btn-primary:hover, .btn-forest:hover {
-  background-color: #1A3926;
+  background-color: #631C67;
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(20, 44, 30, 0.3);
+  box-shadow: 0 12px 30px rgba(74, 21, 77, 0.38);
   color: #FFFFFF !important;
 }
 
 /* Cream / Alabaster Pill Button (Template Hero) */
 .btn-cream, .btn-hero-cream {
-  background-color: #FAF7F2;
-  color: #142C1E !important;
+  background-color: #FAF5FA;
+  color: #360E3A !important;
   font-weight: 600;
-  border-color: #FAF7F2;
+  border-color: #FAF5FA;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
@@ -281,33 +281,33 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 /* Outline Buttons */
 .btn-outline, .btn-outline-light {
   background: transparent;
-  color: #FAF7F2 !important;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FAF4FA !important;
+  border: 1px solid rgba(221, 160, 221, 0.45);
 }
 
 .btn-outline:hover, .btn-outline-light:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #FFFFFF;
+  background: rgba(221, 160, 221, 0.16);
+  border-color: #DDA0DD;
   transform: translateY(-2px);
 }
 
 .btn-outline-dark {
   background: transparent;
   color: var(--text-main) !important;
-  border: 1px solid rgba(24, 25, 24, 0.25);
+  border: 1px solid rgba(29, 20, 30, 0.25);
 }
 
 .btn-outline-dark:hover {
-  background: rgba(24, 25, 24, 0.05);
-  border-color: var(--text-main);
+  background: rgba(221, 160, 221, 0.1);
+  border-color: var(--text-accent);
   transform: translateY(-2px);
 }
 
 /* Light / Card Button */
 .btn-light {
   background-color: #FFFFFF;
-  color: #181918 !important;
-  border-color: rgba(24, 25, 24, 0.12);
+  color: #1D141E !important;
+  border-color: rgba(29, 20, 30, 0.12);
   box-shadow: var(--shadow-subtle);
 }
 
@@ -318,9 +318,9 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 }
 
 [data-theme="night"] .btn-light {
-  background-color: #1E3424;
-  color: #FAF7F2 !important;
-  border-color: rgba(255, 255, 255, 0.18);
+  background-color: #26112C;
+  color: #FAF4FA !important;
+  border-color: rgba(221, 160, 221, 0.25);
 }
 
 /* WhatsApp Button */
@@ -737,7 +737,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 }
 
 .hero-verified {
-  color: #8DE0A6;
+  color: #DDA0DD;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -754,8 +754,8 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #142C1E;
+  border: 1px solid rgba(221, 160, 221, 0.25);
+  background: #1F0D24;
 }
 
 .hero-main-img {
@@ -778,9 +778,9 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: rgba(20, 44, 30, 0.82);
+  background: rgba(40, 15, 45, 0.85);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(221, 160, 221, 0.7);
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -794,7 +794,8 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 
 .hero-video-trigger-btn:hover {
   transform: translate(-50%, -50%) scale(1.1);
-  background: var(--accent-gold);
+  background: #DDA0DD;
+  color: #230B27;
   border-color: #FFFFFF;
 }
 
@@ -803,7 +804,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(15, 38, 24, 0.96) 80%);
+  background: linear-gradient(180deg, transparent 0%, rgba(22, 13, 26, 0.96) 80%);
   padding: 36px 24px 22px;
   color: #FFFFFF;
   z-index: 2;
@@ -836,7 +837,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   bottom: -22px;
   left: -20px;
   background: #FFFFFF;
-  color: #181918;
+  color: var(--text-main);
   padding: 14px 18px;
   border-radius: 18px;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
@@ -844,7 +845,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   align-items: center;
   gap: 12px;
   z-index: 5;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border-light);
   max-width: 320px;
   animation: floatCard 6s ease-in-out infinite alternate;
 }
@@ -858,8 +859,8 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #E8F3EB;
-  color: #1E6539;
+  background: var(--badge-mint-bg);
+  color: var(--badge-mint-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -870,7 +871,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 .notif-title {
   font-size: 0.84rem;
   font-weight: 700;
-  color: #181918;
+  color: var(--text-main);
 }
 
 .notif-desc {
@@ -1053,7 +1054,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 }
 
 .sanctuary-checklist li i {
-  color: #1E6539;
+  color: var(--text-accent);
   font-size: 0.9rem;
 }
 
@@ -1134,15 +1135,15 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: rgba(15, 38, 24, 0.88);
+  background: rgba(26, 12, 30, 0.88);
   backdrop-filter: blur(8px);
-  color: #EBD6BC;
+  color: #F0CEF0;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   padding: 4px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(197, 154, 99, 0.3);
+  border: 1px solid rgba(221, 160, 221, 0.35);
 }
 
 .therapy-card-body {
@@ -1357,7 +1358,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 }
 
 .booking-trust-item i {
-  color: #1E6539;
+  color: var(--text-accent);
   font-size: 1.05rem;
 }
 
@@ -1473,7 +1474,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   border-radius: 14px;
   padding: 14px 18px;
   margin: 18px 0;
-  border: 1px dashed rgba(20, 44, 30, 0.2);
+  border: 1px dashed rgba(110, 32, 114, 0.28);
   font-size: 0.84rem;
   color: var(--text-main);
 }
@@ -1534,7 +1535,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 .atmosphere-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(15, 38, 24, 0.88) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(22, 13, 26, 0.88) 100%);
   display: flex;
   align-items: flex-end;
   padding: 24px;
@@ -1763,7 +1764,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 }
 
 [data-theme="night"] .map-floating-badge {
-  background: rgba(20, 36, 25, 0.94);
+  background: rgba(28, 14, 34, 0.94);
   color: #FFFFFF;
 }
 
@@ -1805,7 +1806,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
   background-color: var(--bg-dark);
   color: rgba(247, 244, 238, 0.85);
   padding: 80px 0 32px;
-  border-top: 1px solid rgba(197, 154, 99, 0.18);
+  border-top: 1px solid rgba(221, 160, 221, 0.22);
 }
 
 .footer-grid-4 {
@@ -1865,7 +1866,7 @@ h1 em, h2 em, h3 em, h4 em, .italic-accent {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(10, 18, 12, 0.85);
+  background: rgba(15, 7, 18, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 3000;

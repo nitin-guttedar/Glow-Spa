@@ -585,7 +585,7 @@ function initMap() {
 
     const customIcon = L.divIcon({
       className: 'custom-map-pin',
-      html: `<div style="background: #142C1E; color: #FFF; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; border: 3px solid #C59A63; box-shadow: 0 4px 14px rgba(0,0,0,0.4);"><i class="fas fa-spa"></i></div>`,
+      html: `<div style="background: #250C2A; color: #FFF; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; border: 3px solid #DDA0DD; box-shadow: 0 4px 14px rgba(221,160,221,0.45);"><i class="fas fa-spa" style="color: #DDA0DD;"></i></div>`,
       iconSize: [38, 38],
       iconAnchor: [19, 19]
     });
@@ -593,9 +593,9 @@ function initMap() {
     L.marker([lat, lng], { icon: customIcon }).addTo(map)
       .bindPopup(`
         <div style="font-family: sans-serif; padding: 6px;">
-          <strong style="color: #142C1E; font-size: 1rem;">Glow Spa Kalaburagi</strong><br/>
+          <strong style="color: #380F3B; font-size: 1rem;">Glow Spa Kalaburagi</strong><br/>
           <span style="font-size: 0.85rem; color: #555;">Ram Mandir Service Road, Above Onyx Italian Marble</span><br/>
-          <a href="https://maps.google.com/?q=${lat},${lng}" target="_blank" style="color: #C59A63; font-weight: 600; font-size: 0.82rem; margin-top: 4px; display: inline-block;">Get Directions &rarr;</a>
+          <a href="https://maps.google.com/?q=${lat},${lng}" target="_blank" style="color: #6E2072; font-weight: 600; font-size: 0.82rem; margin-top: 4px; display: inline-block;">Get Directions &rarr;</a>
         </div>
       `)
       .openPopup();
