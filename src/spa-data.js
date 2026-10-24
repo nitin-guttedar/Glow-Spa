@@ -3,7 +3,7 @@
 
 export const SPA_CONFIG = {
   brandName: "Glow Spa",
-  brandLegacy: "Glow Family Spa",
+  brandLegacy: "Glow Spa",
   tagline: "Sanctuary of Contemporary Wellness & Tactile Serenity",
   rating: 5.0,
   reviewsCount: 238,
@@ -437,7 +437,7 @@ export const FAQS = [
   },
   {
     q: "Do you offer couple and family-friendly packages?",
-    a: "Absolutely. Glow Spa (celebrated as Glow Family Spa) is proud to be a strictly professional, family-friendly sanctuary. We offer our spacious Master VIP Suite with side-by-side tables for couples, spouses, or close family members."
+    a: "Absolutely. Glow Spa (celebrated as Glow Spa) is proud to be a strictly professional, family-friendly sanctuary. We offer our spacious Master VIP Suite with side-by-side tables for couples, spouses, or close family members."
   },
   {
     q: "What payment methods do you accept?",

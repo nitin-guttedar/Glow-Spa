@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Glow Spa Kalaburagi | Luxury Wellness Sanctuary & Therapeutic Spa</title>
-  <meta name="description" content="Discover Kalaburagi's premier luxury wellness sanctuary. Authentic Kerala Ayurveda, Mediterranean Hammam steam, Swedish massage, and private AC suites with attached glass showers."/>
 
-  <!-- Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Glow Spa Kalaburagi | Luxury Wellness Sanctuary & Therapeutic Spa</title>
+  <meta name="description"
+    content="Discover Kalaburagi's premier luxury wellness sanctuary. Authentic Kerala Ayurveda, Mediterranean Hammam steam, Swedish massage, and private AC suites with attached glass showers." />
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Preload Critical LCP Asset -->
+  <link rel="preload" as="image" href="/assets/stitch_hero_reception_4k.jpg" fetchpriority="high" />
+
+  <!-- Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans) with Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
 
   <!-- FontAwesome 6 & Leaflet Map Styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link rel="icon" type="image/png" href="/assets/favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
   <!-- Tailwind CSS CDN with Royal Light Palette Configuration -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -51,24 +64,84 @@
 
   <style>
     @layer base {
-      html, body {
+
+      html,
+      body {
         margin: 0;
         padding: 0;
         background-color: #FAF6FB;
         color: #260D2E;
         font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        overflow-x: hidden;
       }
     }
+
+    /* Smooth Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 7px;
     }
+
     ::-webkit-scrollbar-track {
       background: #FAF6FB;
     }
+
     ::-webkit-scrollbar-thumb {
       background: #DDA0DD;
       border-radius: 4px;
     }
+
+    /* Natural High-Definition Photography (Purple Gradients & Monochrome Removed) */
+    img {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    /* 2. SMALL ELEGANT SCROLL ANIMATIONS */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 {
+      transition-delay: 0.05s;
+    }
+
+    .stagger-2 {
+      transition-delay: 0.10s;
+    }
+
+    .stagger-3 {
+      transition-delay: 0.15s;
+    }
+
+    .stagger-4 {
+      transition-delay: 0.20s;
+    }
+
+    .stagger-5 {
+      transition-delay: 0.25s;
+    }
+
+    .stagger-6 {
+      transition-delay: 0.30s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Map Marker Pin */
     .custom-map-pin {
       background: #6E2072;
       color: #FFF;
@@ -80,15 +153,17 @@
       justify-content: center;
       font-size: 1.1rem;
       border: 3px solid #DDA0DD;
-      box-shadow: 0 4px 14px rgba(221,160,221,0.45);
+      box-shadow: 0 4px 14px rgba(221, 160, 221, 0.45);
     }
-    /* Dropdown Transitions */
+
+    /* Simple Services Dropdown */
     .dropdown-menu {
       opacity: 0;
       visibility: hidden;
       transform: translateY(8px);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .dropdown-container:hover .dropdown-menu,
     .dropdown-container:focus-within .dropdown-menu {
       opacity: 1;
@@ -101,10 +176,13 @@
 <body class="bg-royal-light text-royal-text-main antialiased selection:bg-royal-accent selection:text-royal-plum-deep">
 
   <!-- ========================================================================= -->
-  <!-- 1. TOP ANNOUNCEMENT BAR (ROYAL LIGHT & REFINED) -->
+  <!-- 1. TOP ANNOUNCEMENT BAR & NAVBAR (BLENDED ROYAL LILAC & ZERO WHITE BG) -->
   <!-- ========================================================================= -->
-  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="site-header">
-    <div class="bg-[#F8F1F9] text-royal-plum py-2 px-4 md:px-8 text-center text-xs tracking-wider uppercase border-b border-royal-border flex items-center justify-center gap-2 font-medium">
+  <header
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-r from-[#FAF5FB]/95 via-[#F4E9F6]/95 to-[#FAF5FB]/95 backdrop-blur-xl border-b border-royal-border/50"
+    id="site-header">
+    <div
+      class="bg-[#F8F1F9]/40 text-royal-plum py-2 px-4 md:px-8 text-center text-xs tracking-wider uppercase border-b border-royal-border/30 flex items-center justify-center gap-2 font-medium">
       <span class="material-symbols-outlined text-[15px] text-royal-gold">location_on</span>
       <span>Above Onyx Italian Marble, Ram Mandir Service Rd, Kalaburagi</span>
       <span class="hidden md:inline text-royal-border">•</span>
@@ -113,38 +191,52 @@
       <span class="hidden lg:inline font-semibold">Direct Desk: +91 94801 82920</span>
     </div>
 
-    <!-- MAIN NAVBAR (SIMPLE & CLEAR: Home, About Us, Services, Blogs) -->
-    <div class="h-20 bg-white/95 backdrop-blur-xl border-b border-royal-border/60 shadow-[0_2px_15px_rgba(110,32,114,0.05)]">
+    <!-- MAIN NAVBAR (BLENDED WITH HEADER & HOME CONTENT, NO WHITE BACKGROUND) -->
+    <div class="h-20 bg-transparent">
       <div class="max-w-[1320px] mx-auto h-full px-4 md:px-8 flex items-center justify-between gap-4">
-        
+
         <!-- Brand Identity Lockup -->
-        <a href="#hero" class="flex items-center gap-3 group">
-          <img alt="Glow Spa Logo" class="h-9 w-auto object-contain transition-transform group-hover:scale-105" src="/assets/glow-spa-logo-transparent.png"/>
+        <a href="#hero"
+          class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded-lg p-1">
+          <img alt="Glow Spa Logo" width="36" height="36"
+            class="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+            src="/assets/glow-spa-logo-transparent.png" />
           <div class="flex flex-col">
             <span class="font-serif text-2xl text-royal-plum tracking-tight font-semibold leading-none">Glow Spa</span>
-            <span class="text-[10px] tracking-widest text-royal-text-muted uppercase font-semibold mt-0.5">Kalaburagi Sanctuary</span>
+            <span class="text-[10px] tracking-widest text-royal-text-muted uppercase font-semibold mt-0.5">Kalaburagi
+              Sanctuary</span>
           </div>
         </a>
 
         <!-- DESKTOP NAVIGATION: 4 CLEAR SECTIONS -->
-        <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-royal-text-muted">
+        <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-royal-text-muted"
+          aria-label="Main Navigation">
           <!-- 1. Home -->
-          <a href="#hero" class="hover:text-royal-plum transition-colors py-2 text-royal-plum font-semibold">Home</a>
-          
+          <a href="#hero"
+            class="hover:text-royal-plum transition-colors py-2 text-royal-plum font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded">Home</a>
+
           <!-- 2. About Us -->
-          <a href="#about" class="hover:text-royal-plum transition-colors py-2">About Us</a>
+          <a href="#about"
+            class="hover:text-royal-plum transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded">About
+            Us</a>
 
           <!-- 3. Services Dropdown -->
           <div class="relative dropdown-container py-2">
-            <button class="flex items-center gap-1 hover:text-royal-plum transition-colors focus:outline-none" aria-haspopup="true">
+            <button
+              class="flex items-center gap-1 hover:text-royal-plum transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded"
+              aria-haspopup="true" aria-expanded="false">
               <span>Services</span>
-              <span class="material-symbols-outlined text-[18px] transition-transform duration-200">keyboard_arrow_down</span>
+              <span
+                class="material-symbols-outlined text-[18px] transition-transform duration-200">keyboard_arrow_down</span>
             </button>
-            
+
             <!-- Floating Royal Dropdown Menu -->
-            <div class="dropdown-menu absolute top-full left-0 w-72 bg-white rounded-2xl shadow-[0_12px_36px_rgba(110,32,114,0.14)] border border-royal-border p-2.5 space-y-1 z-50">
-              <a href="#signature-catalog" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
+            <div
+              class="dropdown-menu absolute top-full left-0 w-72 bg-[#FAF7FC]/98 backdrop-blur-xl rounded-2xl shadow-[0_12px_36px_rgba(110,32,114,0.14)] border border-royal-border p-2.5 space-y-1 z-50">
+              <a href="#signature-catalog"
+                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
+                <div
+                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
                   <span class="material-symbols-outlined text-[18px]">spa</span>
                 </div>
                 <div>
@@ -153,8 +245,10 @@
                 </div>
               </a>
 
-              <a href="#standards" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
+              <a href="#standards"
+                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
+                <div
+                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
                   <span class="material-symbols-outlined text-[18px]">verified_user</span>
                 </div>
                 <div>
@@ -163,8 +257,10 @@
                 </div>
               </a>
 
-              <a href="#rituals" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
+              <a href="#rituals"
+                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
+                <div
+                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
                   <span class="material-symbols-outlined text-[18px]">self_improvement</span>
                 </div>
                 <div>
@@ -173,8 +269,10 @@
                 </div>
               </a>
 
-              <a href="#atmosphere" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
+              <a href="#atmosphere"
+                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
+                <div
+                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
                   <span class="material-symbols-outlined text-[18px]">meeting_room</span>
                 </div>
                 <div>
@@ -183,8 +281,10 @@
                 </div>
               </a>
 
-              <a href="#reviews" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
+              <a href="#reviews"
+                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
+                <div
+                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
                   <span class="material-symbols-outlined text-[18px]">star</span>
                 </div>
                 <div>
@@ -193,8 +293,10 @@
                 </div>
               </a>
 
-              <a href="#localities" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
+              <a href="#localities"
+                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
+                <div
+                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
                   <span class="material-symbols-outlined text-[18px]">explore</span>
                 </div>
                 <div>
@@ -203,8 +305,10 @@
                 </div>
               </a>
 
-              <a href="#faqs" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
+              <a href="#faqs"
+                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
+                <div
+                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
                   <span class="material-symbols-outlined text-[18px]">help_outline</span>
                 </div>
                 <div>
@@ -216,25 +320,30 @@
           </div>
 
           <!-- 4. Blogs -->
-          <a href="#blogs" class="hover:text-royal-plum transition-colors py-2">Blogs</a>
+          <a href="#blogs"
+            class="hover:text-royal-plum transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded">Blogs</a>
         </nav>
 
         <!-- RIGHT ACTION CTAS (Clean & Royal, Spa Audio REMOVED) -->
         <div class="flex items-center gap-3">
           <!-- WhatsApp Direct -->
-          <a class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-royal-surface-warm text-royal-emerald hover:bg-royal-light transition-all text-xs font-semibold border border-royal-border shadow-sm" href="https://wa.me/919480182920" rel="noopener noreferrer" target="_blank">
+          <a class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-royal-surface-warm text-royal-emerald hover:bg-royal-light transition-all text-xs font-semibold border border-royal-border shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+            href="https://wa.me/919480182920" rel="noopener noreferrer" target="_blank" aria-label="Chat on WhatsApp">
             <i class="fab fa-whatsapp text-sm text-green-600"></i>
             <span>WhatsApp</span>
           </a>
 
-          <!-- Book Ritual CTA -->
-          <a class="px-5 md:px-6 py-2.5 rounded-full bg-gradient-to-r from-royal-plum to-royal-plum-deep text-white hover:from-[#7E2483] hover:to-royal-plum transition-all shadow-[0_4px_16px_rgba(110,32,114,0.25)] text-xs md:text-sm font-semibold flex items-center gap-2 transform hover:-translate-y-0.5" href="#reservation-concierge">
-            <span>Book Ritual</span>
+          <!-- Book Appointment CTA -->
+          <a class="px-5 md:px-6 py-2.5 rounded-full bg-gradient-to-r from-royal-plum to-royal-plum-deep text-white hover:from-[#7E2483] hover:to-royal-plum transition-all shadow-[0_4px_16px_rgba(110,32,114,0.25)] text-xs md:text-sm font-semibold flex items-center gap-2 transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+            href="#reservation-concierge">
+            <span>Book Appointment</span>
             <span class="material-symbols-outlined text-[18px]">calendar_month</span>
           </a>
 
           <!-- Mobile Hamburger Button -->
-          <button id="mobileNavToggle" class="lg:hidden w-10 h-10 rounded-full bg-royal-surface-warm border border-royal-border flex items-center justify-center text-royal-plum hover:bg-royal-light transition-colors" aria-label="Open Mobile Menu">
+          <button id="mobileNavToggle"
+            class="lg:hidden w-10 h-10 rounded-full bg-royal-surface-warm border border-royal-border flex items-center justify-center text-royal-plum hover:bg-royal-light transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+            aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
             <span class="material-symbols-outlined text-[22px]">menu</span>
           </button>
         </div>
@@ -244,46 +353,65 @@
   </header>
 
   <!-- MOBILE NAVIGATION DRAWER -->
-  <div id="mobileDrawer" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden transition-opacity">
-    <div class="fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+  <div id="mobileDrawer" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden transition-opacity"
+    aria-hidden="true">
+    <div
+      class="fixed top-0 right-0 w-80 max-w-full h-full bg-[#FAF7FC] shadow-2xl p-6 flex flex-col justify-between overflow-y-auto"
+      role="dialog" aria-modal="true" aria-label="Mobile Navigation">
       <div>
         <div class="flex items-center justify-between pb-6 border-b border-royal-border">
           <div class="flex items-center gap-2">
-            <img alt="Glow Spa Logo" class="h-8 w-auto" src="/assets/glow-spa-logo-transparent.png"/>
+            <img alt="Glow Spa Logo" width="32" height="32" class="h-8 w-auto"
+              src="/assets/glow-spa-logo-transparent.png" />
             <span class="font-serif text-lg text-royal-plum font-semibold">Glow Spa</span>
           </div>
-          <button id="mobileNavClose" class="w-8 h-8 rounded-full bg-royal-surface-warm flex items-center justify-center text-royal-text-muted hover:text-royal-plum">
+          <button id="mobileNavClose"
+            class="w-8 h-8 rounded-full bg-royal-surface-warm flex items-center justify-center text-royal-text-muted hover:text-royal-plum focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+            aria-label="Close Mobile Menu">
             <span class="material-symbols-outlined text-[20px]">close</span>
           </button>
         </div>
 
         <nav class="py-6 space-y-4">
           <a href="#hero" class="mobile-nav-link block font-medium text-base text-royal-plum font-semibold">Home</a>
-          <a href="#about" class="mobile-nav-link block font-medium text-base text-royal-text-main hover:text-royal-plum">About Us</a>
-          
+          <a href="#about"
+            class="mobile-nav-link block font-medium text-base text-royal-text-main hover:text-royal-plum">About Us</a>
+
           <!-- Collapsible Services in Mobile -->
           <div class="pt-2">
-            <span class="text-xs uppercase tracking-wider text-royal-text-muted font-bold block mb-2">Services & Features</span>
+            <span class="text-xs uppercase tracking-wider text-royal-text-muted font-bold block mb-2">Services &
+              Features</span>
             <div class="space-y-2 pl-3 border-l-2 border-royal-accent">
-              <a href="#signature-catalog" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Signature Therapies</a>
-              <a href="#standards" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Hospital-Grade Standards</a>
-              <a href="#rituals" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">5-Step Rituals</a>
-              <a href="#atmosphere" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Atmosphere & Suites</a>
-              <a href="#reviews" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Guest Reviews</a>
-              <a href="#localities" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">50 Neighborhoods</a>
+              <a href="#signature-catalog"
+                class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Signature Therapies</a>
+              <a href="#standards"
+                class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Hospital-Grade
+                Standards</a>
+              <a href="#rituals" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">5-Step
+                Rituals</a>
+              <a href="#atmosphere"
+                class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Atmosphere & Suites</a>
+              <a href="#reviews" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Guest
+                Reviews</a>
+              <a href="#localities" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">50
+                Neighborhoods</a>
               <a href="#faqs" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">FAQs</a>
             </div>
           </div>
 
-          <a href="#blogs" class="mobile-nav-link block font-medium text-base text-royal-text-main hover:text-royal-plum pt-2">Blogs & Insights</a>
+          <a href="#blogs"
+            class="mobile-nav-link block font-medium text-base text-royal-text-main hover:text-royal-plum pt-2">Blogs &
+            Insights</a>
         </nav>
       </div>
 
       <div class="pt-6 border-t border-royal-border space-y-3">
-        <a href="https://wa.me/919480182920" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-green-50 text-green-700 font-semibold text-sm flex items-center justify-center gap-2 border border-green-200">
+        <a href="https://wa.me/919480182920" target="_blank" rel="noopener noreferrer"
+          class="w-full py-3 rounded-xl bg-green-50 text-green-700 font-semibold text-sm flex items-center justify-center gap-2 border border-green-200">
           <i class="fab fa-whatsapp"></i> Chat on WhatsApp
         </a>
-        <a href="#reservation-concierge" class="mobile-nav-link w-full py-3 rounded-xl bg-royal-plum text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-md">
+        <a href="#reservation-concierge"
+          class="mobile-nav-link w-full py-3 rounded-xl bg-royal-plum text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-md">
           <span class="material-symbols-outlined text-[18px]">calendar_month</span> Book Appointment
         </a>
       </div>
@@ -291,13 +419,15 @@
   </div>
 
   <!-- MAIN BODY CONTENT -->
-  <main class="w-full pt-28 md:pt-32 min-h-screen">
+  <main class="w-full min-h-screen">
 
     <!-- ========================================================================= -->
     <!-- 2. HERO SECTION (ROYAL LIGHT & AIRY SANCTUARY) -->
     <!-- ========================================================================= -->
-    <section class="relative w-full overflow-hidden bg-gradient-to-br from-[#FAF5FB] via-[#F4E9F6] to-[#FAF8F3] pb-16 pt-8 lg:pt-14 border-b border-royal-border" id="hero">
-      
+    <section
+      class="relative w-full overflow-hidden bg-gradient-to-br from-[#FAF5FB] via-[#F4E9F6] to-[#FAF8F3] pt-28 sm:pt-32 lg:pt-36 pb-16 border-b border-royal-border"
+      id="hero">
+
       <!-- Subtle Royal Lilac Floral/Geometric Ambient Aura -->
       <div class="absolute inset-0 opacity-20 pointer-events-none">
         <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
@@ -306,44 +436,55 @@
       </div>
 
       <div class="relative max-w-[1320px] mx-auto px-4 md:px-8">
-        
+
         <!-- Upper Micro-Bar -->
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-royal-border/80">
+        <div
+          class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-royal-border/80 reveal-on-scroll">
           <div class="inline-flex items-center gap-2 text-royal-plum text-xs font-semibold tracking-wider uppercase">
             <span class="w-2 h-2 rounded-full bg-royal-plum animate-pulse"></span>
-            <span>Glow Family Spa • Ram Mandir Service Road Corridor</span>
+            <span>Glow Spa • Ram Mandir Service Road Corridor</span>
           </div>
           <div class="flex items-center gap-4 text-royal-text-muted text-xs font-medium">
-            <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-royal-plum">shower</span> Attached En-Suite Glass Showers</span>
+            <span class="flex items-center gap-1.5"><span
+                class="material-symbols-outlined text-sm text-royal-plum">shower</span> Attached En-Suite Glass
+              Showers</span>
             <span class="hidden sm:inline text-royal-border">•</span>
-            <span class="hidden sm:flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-royal-plum">verified_user</span> Hospital-Grade Sterility</span>
+            <span class="hidden sm:flex items-center gap-1.5"><span
+                class="material-symbols-outlined text-sm text-royal-plum">verified_user</span> Hospital-Grade
+              Sterility</span>
           </div>
         </div>
 
         <!-- Hero Main Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pt-8 items-center">
-          
+
           <!-- Hero Text Column -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-white text-royal-plum border border-royal-border text-xs uppercase tracking-widest font-semibold shadow-sm">
+          <div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+            <div
+              class="inline-block px-4 py-1.5 rounded-full bg-royal-surface-warm text-royal-plum border border-royal-border text-xs uppercase tracking-widest font-semibold shadow-sm">
               First Floor Sanctuary • Above Onyx Italian Marble
             </div>
-            
-            <h1 class="font-serif text-3xl sm:text-4xl lg:text-[46px] lg:leading-[56px] text-royal-text-main font-semibold tracking-tight">
+
+            <h1
+              class="font-serif text-3xl sm:text-4xl lg:text-[46px] lg:leading-[56px] text-royal-text-main font-semibold tracking-tight">
               A Sanctuary of Architectural Serenity & Tactile Restoration
             </h1>
-            
+
             <p class="text-base sm:text-lg text-royal-text-muted max-w-xl leading-relaxed">
-              Discover Kalaburagi’s benchmark holistic wellness escape. We harmonize authentic Kerala Ayurveda, Mediterranean Hammam steam, and somatic deep tissue release inside private climate-regulated AC suites with Carrara marble finishes.
+              Discover Kalaburagi’s benchmark holistic wellness escape. We harmonize authentic Kerala Ayurveda,
+              Mediterranean Hammam steam, and somatic deep tissue release inside private climate-regulated AC suites
+              with Carrara marble finishes.
             </p>
 
             <!-- Hero Action Buttons -->
             <div class="flex flex-wrap items-center gap-4 pt-2">
-              <a class="px-8 py-3.5 rounded-full bg-gradient-to-r from-royal-plum to-royal-plum-deep text-white hover:from-[#7E2483] hover:to-royal-plum text-sm font-semibold flex items-center gap-2 shadow-[0_8px_20px_rgba(110,32,114,0.22)] transition-all transform hover:-translate-y-0.5" href="#reservation-concierge">
+              <a class="px-8 py-3.5 rounded-full bg-gradient-to-r from-royal-plum to-royal-plum-deep text-white hover:from-[#7E2483] hover:to-royal-plum text-sm font-semibold flex items-center gap-2 shadow-[0_8px_20px_rgba(110,32,114,0.22)] transition-all transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                href="#reservation-concierge">
                 <span>Book Appointment</span>
                 <span class="material-symbols-outlined text-[18px]">calendar_today</span>
               </a>
-              <a class="px-7 py-3.5 rounded-full bg-white text-royal-plum hover:bg-royal-light text-sm font-semibold flex items-center gap-2 border border-royal-border shadow-sm transition-all" href="#signature-catalog">
+              <a class="px-7 py-3.5 rounded-full bg-royal-surface-warm text-royal-plum hover:bg-royal-light text-sm font-semibold flex items-center gap-2 border border-royal-border shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                href="#signature-catalog">
                 <span>Explore 12 Therapies</span>
                 <span class="material-symbols-outlined text-[18px]">east</span>
               </a>
@@ -370,26 +511,29 @@
             </div>
           </div>
 
-          <!-- Hero 4K Reception Visual -->
-          <div class="lg:col-span-5 relative">
+          <!-- Hero 4K Reception Visual (Monochrome Editorial) -->
+          <div class="lg:col-span-5 relative reveal-on-scroll stagger-1">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
-              <img class="w-full h-[450px] object-cover object-center transform group-hover:scale-105 transition-all duration-700" alt="Warm atmospheric reception desk of Glow Spa with fluted vertical walnut timber panels and ambient lilac glow in Kalaburagi" src="/assets/stitch_hero_reception_4k.jpg"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-royal-plum-deep/80 via-transparent to-transparent opacity-85"></div>
-              <div class="absolute bottom-0 left-0 right-0 p-6 text-white space-y-1">
-                <span class="text-xs uppercase tracking-widest text-royal-thistle block font-semibold">Architectural Highlight</span>
-                <p class="font-serif text-xl font-medium">The Fluted Walnut & Lotus Desk</p>
-                <p class="text-xs text-white/90">Handcrafted timber acoustics, subtle lilac halo lighting & soothing aromatic diffusers.</p>
-              </div>
+              <img
+                class="w-full h-[450px] object-cover object-center transform group-hover:scale-105 transition-all duration-700"
+                alt="Warm atmospheric reception desk of Glow Spa with fluted vertical walnut timber panels and ambient cove in Kalaburagi"
+                width="800" height="450" loading="eager" fetchpriority="high" decoding="async"
+                src="/assets/stitch_hero_reception_4k.jpg" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
             </div>
 
             <!-- Overlapping Climate Badge -->
-            <div class="hidden md:flex absolute -bottom-5 -left-5 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl items-center gap-3 max-w-[270px] border border-royal-border">
-              <div class="w-10 h-10 rounded-xl bg-royal-light flex items-center justify-center shrink-0 text-royal-plum">
+            <div
+              class="hidden md:flex absolute -bottom-5 -left-5 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl items-center gap-3 max-w-[270px] border border-royal-border">
+              <div
+                class="w-10 h-10 rounded-xl bg-royal-light flex items-center justify-center shrink-0 text-royal-plum">
                 <span class="material-symbols-outlined text-[20px]">air</span>
               </div>
               <div class="space-y-0.5">
                 <p class="text-xs font-bold text-royal-text-main">Individual Climate Control</p>
-                <p class="text-[11px] leading-tight text-royal-text-muted">Independent Acer AC systems inside each private therapy suite.</p>
+                <p class="text-[11px] leading-tight text-royal-text-muted">Independent Acer AC systems inside each
+                  private therapy suite.</p>
               </div>
             </div>
           </div>
@@ -404,48 +548,60 @@
     <section class="py-14 bg-white" id="standards">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          
+
           <!-- Pillar 1 -->
-          <div class="p-6 rounded-2xl bg-royal-light/60 hover:bg-royal-surface-card transition-all border border-royal-border/60 hover:border-royal-accent group hover:shadow-md">
-            <div class="w-12 h-12 rounded-xl bg-white border border-royal-border flex items-center justify-center text-royal-plum mb-4 group-hover:bg-royal-plum group-hover:text-white transition-all shadow-sm">
+          <div
+            class="p-6 rounded-2xl bg-royal-light/60 hover:bg-royal-surface-card transition-all border border-royal-border/60 hover:border-royal-accent group hover:shadow-md reveal-on-scroll stagger-1">
+            <div
+              class="w-12 h-12 rounded-xl bg-white border border-royal-border flex items-center justify-center text-royal-plum mb-4 group-hover:bg-royal-plum group-hover:text-white transition-all shadow-sm">
               <span class="material-symbols-outlined text-[24px]">sanitizer</span>
             </div>
             <h3 class="font-serif text-lg text-royal-text-main font-semibold mb-2">Hospital-Grade Hygiene</h3>
             <p class="text-xs text-royal-text-muted leading-relaxed">
-              100% freshly sanitized single-use linens, sterile draping protocols, and attached personal glass showers in every suite.
+              100% freshly sanitized single-use linens, sterile draping protocols, and attached personal glass showers
+              in every suite.
             </p>
           </div>
 
           <!-- Pillar 2 -->
-          <div class="p-6 rounded-2xl bg-royal-light/60 hover:bg-royal-surface-card transition-all border border-royal-border/60 hover:border-royal-accent group hover:shadow-md">
-            <div class="w-12 h-12 rounded-xl bg-white border border-royal-border flex items-center justify-center text-royal-plum mb-4 group-hover:bg-royal-plum group-hover:text-white transition-all shadow-sm">
+          <div
+            class="p-6 rounded-2xl bg-royal-light/60 hover:bg-royal-surface-card transition-all border border-royal-border/60 hover:border-royal-accent group hover:shadow-md reveal-on-scroll stagger-2">
+            <div
+              class="w-12 h-12 rounded-xl bg-white border border-royal-border flex items-center justify-center text-royal-plum mb-4 group-hover:bg-royal-plum group-hover:text-white transition-all shadow-sm">
               <span class="material-symbols-outlined text-[24px]">hot_tub</span>
             </div>
             <h3 class="font-serif text-lg text-royal-text-main font-semibold mb-2">Hammam & Ayurveda</h3>
             <p class="text-xs text-royal-text-muted leading-relaxed">
-              Authentic Mediterranean eucalyptus steam hydrotherapy paired seamlessly with classical Kerala Vedic bodywork rituals.
+              Authentic Mediterranean eucalyptus steam hydrotherapy paired seamlessly with classical Kerala Vedic
+              bodywork rituals.
             </p>
           </div>
 
           <!-- Pillar 3 -->
-          <div class="p-6 rounded-2xl bg-royal-light/60 hover:bg-royal-surface-card transition-all border border-royal-border/60 hover:border-royal-accent group hover:shadow-md">
-            <div class="w-12 h-12 rounded-xl bg-white border border-royal-border flex items-center justify-center text-royal-plum mb-4 group-hover:bg-royal-plum group-hover:text-white transition-all shadow-sm">
+          <div
+            class="p-6 rounded-2xl bg-royal-light/60 hover:bg-royal-surface-card transition-all border border-royal-border/60 hover:border-royal-accent group hover:shadow-md reveal-on-scroll stagger-3">
+            <div
+              class="w-12 h-12 rounded-xl bg-white border border-royal-border flex items-center justify-center text-royal-plum mb-4 group-hover:bg-royal-plum group-hover:text-white transition-all shadow-sm">
               <span class="material-symbols-outlined text-[24px]">school</span>
             </div>
             <h3 class="font-serif text-lg text-royal-text-main font-semibold mb-2">Certified Practitioners</h3>
             <p class="text-xs text-royal-text-muted leading-relaxed">
-              Formally accredited male and female therapists trained in musculoskeletal anatomy, gentle communication, and discretion.
+              Formally accredited male and female therapists trained in musculoskeletal anatomy, gentle communication,
+              and discretion.
             </p>
           </div>
 
           <!-- Pillar 4 -->
-          <div class="p-6 rounded-2xl bg-royal-light/60 hover:bg-royal-surface-card transition-all border border-royal-border/60 hover:border-royal-accent group hover:shadow-md">
-            <div class="w-12 h-12 rounded-xl bg-white border border-royal-border flex items-center justify-center text-royal-plum mb-4 group-hover:bg-royal-plum group-hover:text-white transition-all shadow-sm">
+          <div
+            class="p-6 rounded-2xl bg-royal-light/60 hover:bg-royal-surface-card transition-all border border-royal-border/60 hover:border-royal-accent group hover:shadow-md reveal-on-scroll stagger-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-white border border-royal-border flex items-center justify-center text-royal-plum mb-4 group-hover:bg-royal-plum group-hover:text-white transition-all shadow-sm">
               <span class="material-symbols-outlined text-[24px]">lock_reset</span>
             </div>
             <h3 class="font-serif text-lg text-royal-text-main font-semibold mb-2">Zero Advance Surcharge</h3>
             <p class="text-xs text-royal-text-muted leading-relaxed">
-              Reserve your quiet sanctuary hour without prepaying. Transparent invoicing settled seamlessly upon treatment completion.
+              Reserve your quiet sanctuary hour without prepaying. Transparent invoicing settled seamlessly upon
+              treatment completion.
             </p>
           </div>
 
@@ -459,16 +615,23 @@
     <section class="py-16 bg-[#FAF7FC] border-y border-royal-border" id="about">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
-          <!-- Visual Composition Collage (4K Photos) -->
-          <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+
+          <!-- Visual Composition Collage (Monochrome 4K Photos) -->
+          <div class="lg:col-span-6 grid grid-cols-2 gap-4 reveal-on-scroll">
             <div class="space-y-4">
-              <img class="rounded-2xl object-cover h-56 w-full shadow-md border-2 border-white" alt="Private chromotherapy suite in Glow Spa Kalaburagi" src="/assets/stitch_suite_purple_4k.jpg"/>
-              <img class="rounded-2xl object-cover h-64 w-full shadow-md border-2 border-white" alt="Individual glass shower enclosure in spa suite" src="/assets/stitch_suite_shower_4k.jpg"/>
+              <img class="rounded-2xl object-cover h-56 w-full shadow-md border-2 border-white" width="400" height="224"
+                decoding="async" alt="Private chromotherapy suite in Glow Spa Kalaburagi"
+                src="/assets/stitch_suite_purple_4k.jpg" />
+              <img class="rounded-2xl object-cover h-64 w-full shadow-md border-2 border-white" width="400" height="256"
+                decoding="async" alt="Individual glass shower enclosure in spa suite"
+                src="/assets/stitch_suite_shower_4k.jpg" />
             </div>
             <div class="space-y-4 pt-8">
-              <img class="rounded-2xl object-cover h-64 w-full shadow-md border-2 border-white" alt="Therapeutic essential oil bottles and fresh towels" src="/assets/stitch_botanicals_tray_4k.jpg"/>
-              <div class="p-6 rounded-2xl bg-gradient-to-br from-royal-plum to-royal-plum-deep text-white flex flex-col justify-between h-56 shadow-lg">
+              <img class="rounded-2xl object-cover h-64 w-full shadow-md border-2 border-white" width="400" height="256"
+                decoding="async" alt="Therapeutic essential oil bottles and fresh towels"
+                src="/assets/stitch_botanicals_tray_4k.jpg" />
+              <div
+                class="p-6 rounded-2xl bg-gradient-to-br from-royal-plum to-royal-plum-deep text-white flex flex-col justify-between h-56 shadow-lg">
                 <span class="material-symbols-outlined text-royal-accent text-[32px]">spa</span>
                 <div>
                   <p class="font-serif text-xl font-semibold">100% Cold-Pressed</p>
@@ -479,33 +642,41 @@
           </div>
 
           <!-- Narrative Editorial Content -->
-          <div class="lg:col-span-6 space-y-6 lg:pl-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-royal-plum border border-royal-border text-xs uppercase tracking-wider font-semibold shadow-sm">
+          <div class="lg:col-span-6 space-y-6 lg:pl-6 reveal-on-scroll stagger-1">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-royal-plum border border-royal-border text-xs uppercase tracking-wider font-semibold shadow-sm">
               <span>A Holistic Philosophy</span>
             </div>
-            
+
             <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold leading-tight">
               Our Spa Creates A Sanctuary Of Calm With Every Soothing Treatment
             </h2>
-            
-            <blockquote class="p-5 rounded-2xl bg-white border-l-4 border-royal-plum text-royal-text-main italic font-serif text-base leading-relaxed shadow-sm">
-              “Our expert therapists offer a healing touch to release stress, reduce pain, and restore your natural balance in a peaceful, welcoming environment designed to support your total wellness journey.”
+
+            <blockquote
+              class="p-5 rounded-2xl bg-white border-l-4 border-royal-plum text-royal-text-main italic font-serif text-base leading-relaxed shadow-sm">
+              “Our expert therapists offer a healing touch to release stress, reduce pain, and restore your natural
+              balance in a peaceful, welcoming environment designed to support your total wellness journey.”
             </blockquote>
-            
+
             <p class="text-sm text-royal-text-muted leading-relaxed">
-              At Glow Spa along the Ram Mandir Service Road in Kalaburagi, we integrate centuries of therapeutic healing with modern hospital-grade clean protocols. Every treatment begins with sensory grounding—warm foot washing, fragrant herbal mist, and silent contemplation inside your dedicated climate-controlled suite.
+              At Glow Spa along the Ram Mandir Service Road in Kalaburagi, we integrate centuries of therapeutic healing
+              with modern hospital-grade clean protocols. Every treatment begins with sensory grounding—warm foot
+              washing, fragrant herbal mist, and silent contemplation inside your dedicated climate-controlled suite.
             </p>
 
             <div class="pt-2 flex flex-wrap gap-3">
-              <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">
+              <div
+                class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">
                 <span class="material-symbols-outlined text-[18px]">ac_unit</span>
                 <span>Individual Acer AC Control</span>
               </div>
-              <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">
+              <div
+                class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">
                 <span class="material-symbols-outlined text-[18px]">verified</span>
                 <span>100% Single-Use Linens</span>
               </div>
-              <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">
+              <div
+                class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">
                 <span class="material-symbols-outlined text-[18px]">shower</span>
                 <span>Hot Water Hydrotherapy</span>
               </div>
@@ -521,15 +692,19 @@
     <!-- ========================================================================= -->
     <section class="py-16 bg-white" id="signature-catalog">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal-on-scroll">
           <div>
-            <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Handcrafted Therapies</span>
-            <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold">Curated Wellness Therapies & Pricing</h2>
-            <p class="text-sm text-royal-text-muted mt-1">Honest, all-inclusive pricing with zero hidden surcharges or surprise billing.</p>
+            <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Handcrafted
+              Therapies</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold">Curated Wellness Therapies &
+              Pricing</h2>
+            <p class="text-sm text-royal-text-muted mt-1">Honest, all-inclusive pricing with zero hidden surcharges or
+              surprise billing.</p>
           </div>
           <div class="text-right">
-            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-royal-light text-royal-plum border border-royal-border text-xs font-semibold">
+            <span
+              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-royal-light text-royal-plum border border-royal-border text-xs font-semibold">
               <span class="material-symbols-outlined text-[16px]">info</span>
               <span>All sessions include attached private shower & tea</span>
             </span>
@@ -538,13 +713,18 @@
 
         <!-- 6 Signature Modalities 3x2 Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
+
           <!-- Therapy Card 1: Turkish Hammam -->
-          <div class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <div
+            class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-1">
             <div>
-              <div class="relative h-56 overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Turkish Hammam steam suite in Kalaburagi" src="/assets/stitch_hammam_steam_4k.jpg"/>
-                <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Hydro & Thermal</span>
+              <div class="relative h-56 overflow-hidden bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="224" decoding="async" alt="Turkish Hammam steam suite in Kalaburagi"
+                  src="/assets/stitch_hammam_steam_4k.jpg" />
+                <span
+                  class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Hydro
+                  & Thermal</span>
               </div>
               <div class="p-6 space-y-2">
                 <div class="flex items-center justify-between">
@@ -553,28 +733,36 @@
                 </div>
                 <p class="text-xs text-royal-plum font-medium">60 Minutes • Eucalyptus Steam & Body Polish</p>
                 <p class="text-xs text-royal-text-muted pt-2 leading-relaxed">
-                  Traditional hot eucalyptus vapor bath combined with full-body gentle exfoliation, opening pores and melting physical fatigue.
+                  Traditional hot eucalyptus vapor bath combined with full-body gentle exfoliation, opening pores and
+                  melting physical fatigue.
                 </p>
               </div>
             </div>
             <div class="p-6 pt-0">
               <div class="pt-3 border-t border-royal-border/60 flex items-center justify-between">
                 <span class="text-[12px] text-royal-text-muted flex items-center gap-1 font-medium">
-                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Private Steam & Shower
+                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Private Steam
+                  & Shower
                 </span>
-                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors" href="#reservation-concierge">
-                  Book Ritual
+                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                  href="#reservation-concierge">
+                  Book Appointment
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Therapy Card 2: Kerala Abhyanga -->
-          <div class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <div
+            class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-2">
             <div>
-              <div class="relative h-56 overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Ayurvedic Shirodhara therapy in Glow Spa" src="/assets/stitch_kerala_abhyanga_4k.jpg"/>
-                <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Vedic Signature</span>
+              <div class="relative h-56 overflow-hidden bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="224" decoding="async" alt="Ayurvedic Shirodhara therapy in Glow Spa"
+                  src="/assets/stitch_kerala_abhyanga_4k.jpg" />
+                <span
+                  class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Vedic
+                  Signature</span>
               </div>
               <div class="p-6 space-y-2">
                 <div class="flex items-center justify-between">
@@ -583,28 +771,36 @@
                 </div>
                 <p class="text-xs text-royal-plum font-medium">75 Minutes • Shirodhara & Herbal Warm Oil</p>
                 <p class="text-xs text-royal-text-muted pt-2 leading-relaxed">
-                  Authentic warm medicated herbal infusions rhythmically stroked across 107 vital marma energy junctions to ground neurological stress.
+                  Authentic warm medicated herbal infusions rhythmically stroked across 107 vital marma energy junctions
+                  to ground neurological stress.
                 </p>
               </div>
             </div>
             <div class="p-6 pt-0">
               <div class="pt-3 border-t border-royal-border/60 flex items-center justify-between">
                 <span class="text-[12px] text-royal-text-muted flex items-center gap-1 font-medium">
-                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Medicated Herbal Oil
+                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Medicated
+                  Herbal Oil
                 </span>
-                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors" href="#reservation-concierge">
-                  Book Ritual
+                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                  href="#reservation-concierge">
+                  Book Appointment
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Therapy Card 3: Classic Swedish -->
-          <div class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <div
+            class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-3">
             <div>
-              <div class="relative h-56 overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Relaxing Swedish massage with natural sweet almond oil" src="/assets/stitch_swedish_massage_4k.jpg"/>
-                <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Most Popular</span>
+              <div class="relative h-56 overflow-hidden bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="224" decoding="async" alt="Relaxing Swedish massage with natural sweet almond oil"
+                  src="/assets/stitch_swedish_massage_4k.jpg" />
+                <span
+                  class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Most
+                  Popular</span>
               </div>
               <div class="p-6 space-y-2">
                 <div class="flex items-center justify-between">
@@ -613,28 +809,36 @@
                 </div>
                 <p class="text-xs text-royal-plum font-medium">60 Minutes • Deep Muscular Decompression</p>
                 <p class="text-xs text-royal-text-muted pt-2 leading-relaxed">
-                  Long gliding effleurage strokes and kneading designed specifically to disperse muscular fatigue, increase lymphatic flux and calm thoughts.
+                  Long gliding effleurage strokes and kneading designed specifically to disperse muscular fatigue,
+                  increase lymphatic flux and calm thoughts.
                 </p>
               </div>
             </div>
             <div class="p-6 pt-0">
               <div class="pt-3 border-t border-royal-border/60 flex items-center justify-between">
                 <span class="text-[12px] text-royal-text-muted flex items-center gap-1 font-medium">
-                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Sweet Almond Base
+                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Sweet Almond
+                  Base
                 </span>
-                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors" href="#reservation-concierge">
-                  Book Ritual
+                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                  href="#reservation-concierge">
+                  Book Appointment
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Therapy Card 4: Deep Muscle Release -->
-          <div class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <div
+            class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-4">
             <div>
-              <div class="relative h-56 overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Targeted deep tissue myofascial release therapy" src="/assets/stitch_deep_tissue_4k.jpg"/>
-                <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Targeted Pain</span>
+              <div class="relative h-56 overflow-hidden bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="224" decoding="async" alt="Targeted deep tissue myofascial release therapy"
+                  src="/assets/stitch_deep_tissue_4k.jpg" />
+                <span
+                  class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Targeted
+                  Pain</span>
               </div>
               <div class="p-6 space-y-2">
                 <div class="flex items-center justify-between">
@@ -643,28 +847,35 @@
                 </div>
                 <p class="text-xs text-royal-plum font-medium">60 Minutes • Myofascial Knot Breakdown</p>
                 <p class="text-xs text-royal-text-muted pt-2 leading-relaxed">
-                  Focused firm pressure along chronic tension paths to resolve occupational lower back tightness, stiff neck tissues, and postural strain.
+                  Focused firm pressure along chronic tension paths to resolve occupational lower back tightness, stiff
+                  neck tissues, and postural strain.
                 </p>
               </div>
             </div>
             <div class="p-6 pt-0">
               <div class="pt-3 border-t border-royal-border/60 flex items-center justify-between">
                 <span class="text-[12px] text-royal-text-muted flex items-center gap-1 font-medium">
-                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Hot Towel Compresses
+                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Hot Towel
+                  Compresses
                 </span>
-                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors" href="#reservation-concierge">
-                  Book Ritual
+                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                  href="#reservation-concierge">
+                  Book Appointment
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Therapy Card 5: Traditional Thai Yoga -->
-          <div class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <div
+            class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-5">
             <div>
-              <div class="relative h-56 overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Traditional Thai yoga massage room with floor mattress" src="/assets/stitch_thai_yoga_4k.jpg"/>
-                <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Flexibility</span>
+              <div class="relative h-56 overflow-hidden bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="224" decoding="async" alt="Traditional Thai yoga massage room with floor mattress"
+                  src="/assets/stitch_thai_yoga_4k.jpg" />
+                <span
+                  class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">Flexibility</span>
               </div>
               <div class="p-6 space-y-2">
                 <div class="flex items-center justify-between">
@@ -673,28 +884,36 @@
                 </div>
                 <p class="text-xs text-royal-plum font-medium">60 Minutes • Sen Line Acupressure & Stretch</p>
                 <p class="text-xs text-royal-text-muted pt-2 leading-relaxed">
-                  Oil-free somatic bodywork employing gentle assisted stretches, rhythmic compression, and joint mobilization to restore fluid flexibility.
+                  Oil-free somatic bodywork employing gentle assisted stretches, rhythmic compression, and joint
+                  mobilization to restore fluid flexibility.
                 </p>
               </div>
             </div>
             <div class="p-6 pt-0">
               <div class="pt-3 border-t border-royal-border/60 flex items-center justify-between">
                 <span class="text-[12px] text-royal-text-muted flex items-center gap-1 font-medium">
-                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Cotton Loose Pajamas
+                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Cotton Loose
+                  Pajamas
                 </span>
-                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors" href="#reservation-concierge">
-                  Book Ritual
+                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                  href="#reservation-concierge">
+                  Book Appointment
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Therapy Card 6: VIP Couples Sanctuary -->
-          <div class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <div
+            class="rounded-3xl bg-[#FAF7FB] border border-royal-border overflow-hidden hover:shadow-xl hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-6">
             <div>
-              <div class="relative h-56 overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Couples VIP suite with rose petals and dim lighting" src="/assets/stitch_couples_vip_4k.jpg"/>
-                <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">VIP Experience</span>
+              <div class="relative h-56 overflow-hidden bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="224" decoding="async" alt="Couples VIP suite with rose petals and dim lighting"
+                  src="/assets/stitch_couples_vip_4k.jpg" />
+                <span
+                  class="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold">VIP
+                  Experience</span>
               </div>
               <div class="p-6 space-y-2">
                 <div class="flex items-center justify-between">
@@ -703,17 +922,20 @@
                 </div>
                 <p class="text-xs text-royal-plum font-medium">90 Minutes • Dual Suite & Floral Foot Wash</p>
                 <p class="text-xs text-royal-text-muted pt-2 leading-relaxed">
-                  Synchronized dual therapy in our expansive master suite. Includes customized pressure preferences, dual glass showers, and herbal wellness infusions.
+                  Synchronized dual therapy in our expansive master suite. Includes customized pressure preferences,
+                  dual glass showers, and herbal wellness infusions.
                 </p>
               </div>
             </div>
             <div class="p-6 pt-0">
               <div class="pt-3 border-t border-royal-border/60 flex items-center justify-between">
                 <span class="text-[12px] text-royal-text-muted flex items-center gap-1 font-medium">
-                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Private Dual Suite
+                  <span class="material-symbols-outlined text-[14px] text-royal-plum">check_circle</span> Private Dual
+                  Suite
                 </span>
-                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors" href="#reservation-concierge">
-                  Book Ritual
+                <a class="px-4 py-2 rounded-full bg-royal-plum hover:bg-royal-plum-deep text-white text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                  href="#reservation-concierge">
+                  Book Appointment
                 </a>
               </div>
             </div>
@@ -729,93 +951,115 @@
     <section class="py-16 bg-[#F6EEF8] border-y border-royal-border" id="rituals">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
+
           <!-- Bento Stats -->
-          <div class="lg:col-span-6 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-royal-plum border border-royal-border text-xs uppercase tracking-wider font-semibold shadow-sm">
+          <div class="lg:col-span-6 space-y-6 reveal-on-scroll">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-royal-plum border border-royal-border text-xs uppercase tracking-wider font-semibold shadow-sm">
               <span>Biological Equilibrium</span>
             </div>
             <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold leading-tight">
               Scientifically Backed Wellness Benefits
             </h2>
             <p class="text-sm text-royal-text-muted leading-relaxed">
-              Regular therapeutic massage is far more than an indulgence—it regulates vital neuro-hormones, strengthens lymphatic circulation, and downregulates systemic inflammation.
+              Regular therapeutic massage is far more than an indulgence—it regulates vital neuro-hormones, strengthens
+              lymphatic circulation, and downregulates systemic inflammation.
             </p>
             <div class="grid grid-cols-2 gap-4 pt-2">
               <div class="p-5 rounded-2xl bg-white border border-royal-border shadow-sm">
                 <span class="material-symbols-outlined text-royal-plum text-[28px] mb-2">bedtime</span>
                 <p class="font-serif text-base text-royal-text-main font-bold">Better Sleep</p>
-                <p class="text-xs text-royal-text-muted mt-1">Stimulates natural melatonin & serotonin production for unbroken REM cycles.</p>
+                <p class="text-xs text-royal-text-muted mt-1">Stimulates natural melatonin & serotonin production for
+                  unbroken REM cycles.</p>
               </div>
               <div class="p-5 rounded-2xl bg-white border border-royal-border shadow-sm">
                 <span class="material-symbols-outlined text-royal-plum text-[28px] mb-2">psychology</span>
                 <p class="font-serif text-base text-royal-text-main font-bold">Mental Clarity</p>
-                <p class="text-xs text-royal-text-muted mt-1">Dispels cognitive fatigue, clearing cortisol build-up from daily screen exposure.</p>
+                <p class="text-xs text-royal-text-muted mt-1">Dispels cognitive fatigue, clearing cortisol build-up from
+                  daily screen exposure.</p>
               </div>
               <div class="p-5 rounded-2xl bg-white border border-royal-border shadow-sm">
                 <span class="material-symbols-outlined text-royal-plum text-[28px] mb-2">vital_signs</span>
                 <p class="font-serif text-base text-royal-text-main font-bold">Boost Immunity</p>
-                <p class="text-xs text-royal-text-muted mt-1">Accelerates metabolic clearance through active manual lymphatic flushing.</p>
+                <p class="text-xs text-royal-text-muted mt-1">Accelerates metabolic clearance through active manual
+                  lymphatic flushing.</p>
               </div>
               <div class="p-5 rounded-2xl bg-white border border-royal-border shadow-sm">
                 <span class="material-symbols-outlined text-royal-plum text-[28px] mb-2">favorite</span>
                 <p class="font-serif text-base text-royal-text-main font-bold">Circulation</p>
-                <p class="text-xs text-royal-text-muted mt-1">Increases arterial oxygen delivery to deep fascia, speeding tissue recovery.</p>
+                <p class="text-xs text-royal-text-muted mt-1">Increases arterial oxygen delivery to deep fascia,
+                  speeding tissue recovery.</p>
               </div>
             </div>
           </div>
 
           <!-- 5 Therapeutic Rituals Accordion -->
-          <div class="lg:col-span-6 space-y-3">
-            <h3 class="font-serif text-2xl text-royal-text-main font-semibold mb-4">Calm Your Senses With Therapeutic Rituals</h3>
-            
+          <div class="lg:col-span-6 space-y-3 reveal-on-scroll stagger-1">
+            <h3 class="font-serif text-2xl text-royal-text-main font-semibold mb-4">Calm Your Senses With Therapeutic
+              Rituals</h3>
+
             <div class="p-4 rounded-2xl bg-white border border-royal-border shadow-sm">
               <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">1</span>
-                <span class="font-serif text-base text-royal-text-main font-medium">Emotional Healing & Mind Calming</span>
+                <span
+                  class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">1</span>
+                <span class="font-serif text-base text-royal-text-main font-medium">Emotional Healing & Mind
+                  Calming</span>
               </div>
               <p class="text-xs text-royal-text-muted mt-2 pl-10 leading-relaxed">
-                Human touch in a serene sanctuary fosters nervous system decompression, reducing anxiety and mental sensory overload through steady, rhythmic strokes.
+                Human touch in a serene sanctuary fosters nervous system decompression, reducing anxiety and mental
+                sensory overload through steady, rhythmic strokes.
               </p>
             </div>
 
             <div class="p-4 rounded-2xl bg-white border border-royal-border shadow-sm">
               <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">2</span>
-                <span class="font-serif text-base text-royal-text-main font-medium">Hydrotherapy & Steam Immersion</span>
+                <span
+                  class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">2</span>
+                <span class="font-serif text-base text-royal-text-main font-medium">Hydrotherapy & Steam
+                  Immersion</span>
               </div>
               <p class="text-xs text-royal-text-muted mt-2 pl-10 leading-relaxed">
-                Synchronized hydrothermal heat relaxes stubborn fascia tightness, increases arterial elasticity, and prepares deep muscles for safe manipulation.
+                Synchronized hydrothermal heat relaxes stubborn fascia tightness, increases arterial elasticity, and
+                prepares deep muscles for safe manipulation.
               </p>
             </div>
 
             <div class="p-4 rounded-2xl bg-white border border-royal-border shadow-sm">
               <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">3</span>
-                <span class="font-serif text-base text-royal-text-main font-medium">Trained & Licensed Massage Experts</span>
+                <span
+                  class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">3</span>
+                <span class="font-serif text-base text-royal-text-main font-medium">Trained & Licensed Massage
+                  Experts</span>
               </div>
               <p class="text-xs text-royal-text-muted mt-2 pl-10 leading-relaxed">
-                Every practitioner at Glow Spa Kalaburagi is verified in human biomechanics, neuromuscular trigger points, and strict hospitality ethics.
+                Every practitioner at Glow Spa Kalaburagi is verified in human biomechanics, neuromuscular trigger
+                points, and strict hospitality ethics.
               </p>
             </div>
 
             <div class="p-4 rounded-2xl bg-white border border-royal-border shadow-sm">
               <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">4</span>
-                <span class="font-serif text-base text-royal-text-main font-medium">Pure Organic Essential & Botanical Oils</span>
+                <span
+                  class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">4</span>
+                <span class="font-serif text-base text-royal-text-main font-medium">Pure Organic Essential & Botanical
+                  Oils</span>
               </div>
               <p class="text-xs text-royal-text-muted mt-2 pl-10 leading-relaxed">
-                We exclusively apply virgin cold-pressed sweet almond, sesame, and herbal oils free from parabens, mineral bases, or synthetic irritants.
+                We exclusively apply virgin cold-pressed sweet almond, sesame, and herbal oils free from parabens,
+                mineral bases, or synthetic irritants.
               </p>
             </div>
 
             <div class="p-4 rounded-2xl bg-white border border-royal-border shadow-sm">
               <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">5</span>
-                <span class="font-serif text-base text-royal-text-main font-medium">Private En-Suite Showers & Eucalyptus Steam</span>
+                <span
+                  class="w-7 h-7 rounded-full bg-royal-light flex items-center justify-center text-royal-plum font-bold text-xs border border-royal-border">5</span>
+                <span class="font-serif text-base text-royal-text-main font-medium">Private En-Suite Showers &
+                  Eucalyptus Steam</span>
               </div>
               <p class="text-xs text-royal-text-muted mt-2 pl-10 leading-relaxed">
-                Attached private glass hot-water showers in every treatment suite ensure complete personal discretion and relaxed departure.
+                Attached private glass hot-water showers in every treatment suite ensure complete personal discretion
+                and relaxed departure.
               </p>
             </div>
 
@@ -831,19 +1075,21 @@
     <section class="py-16 bg-white" id="reservation-concierge">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          
+
           <!-- Left Value Stack -->
-          <div class="lg:col-span-5 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-royal-light text-royal-plum border border-royal-border text-xs uppercase tracking-wider font-semibold">
+          <div class="lg:col-span-5 space-y-6 reveal-on-scroll">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-royal-light text-royal-plum border border-royal-border text-xs uppercase tracking-wider font-semibold">
               <span>Easy Online Reservation</span>
             </div>
-            
+
             <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold leading-tight">
               Reserve Your Peaceful Moment
             </h2>
-            
+
             <p class="text-sm text-royal-text-muted leading-relaxed">
-              Step away from routine fatigue. Select your preferred therapy and schedule an appointment in seconds. Our front desk team will instantly confirm availability via WhatsApp or direct phone call.
+              Step away from routine fatigue. Select your preferred therapy and schedule an appointment in seconds. Our
+              front desk team will instantly confirm availability via WhatsApp or direct phone call.
             </p>
 
             <div class="space-y-3 pt-2">
@@ -851,7 +1097,8 @@
                 <span class="material-symbols-outlined text-royal-plum mt-0.5">verified_user</span>
                 <div>
                   <p class="text-xs font-bold text-royal-text-main">Zero Advance Payment Required</p>
-                  <p class="text-xs text-royal-text-muted">Settle conveniently upon arrival via UPI, Cash, or Credit/Debit Card.</p>
+                  <p class="text-xs text-royal-text-muted">Settle conveniently upon arrival via UPI, Cash, or
+                    Credit/Debit Card.</p>
                 </div>
               </div>
 
@@ -859,7 +1106,8 @@
                 <span class="material-symbols-outlined text-royal-plum mt-0.5">shield</span>
                 <div>
                   <p class="text-xs font-bold text-royal-text-main">Attached En-Suite Showers & Discretion</p>
-                  <p class="text-xs text-royal-text-muted">Complete acoustic privacy with dedicated hot-water glass showers in each suite.</p>
+                  <p class="text-xs text-royal-text-muted">Complete acoustic privacy with dedicated hot-water glass
+                    showers in each suite.</p>
                 </div>
               </div>
 
@@ -867,49 +1115,72 @@
                 <span class="material-symbols-outlined text-royal-plum mt-0.5">group</span>
                 <div>
                   <p class="text-xs font-bold text-royal-text-main">Choice of Certified Therapists</p>
-                  <p class="text-xs text-royal-text-muted">Professional male and female practitioners maintaining respectful decorum.</p>
+                  <p class="text-xs text-royal-text-muted">Professional male and female practitioners maintaining
+                    respectful decorum.</p>
                 </div>
               </div>
             </div>
 
             <!-- Direct Desk Box -->
-            <div class="p-5 rounded-2xl bg-gradient-to-r from-royal-light to-white border border-royal-border text-royal-text-main flex items-center justify-between shadow-sm">
+            <div
+              class="p-5 rounded-2xl bg-gradient-to-r from-royal-light to-white border border-royal-border text-royal-text-main flex items-center justify-between shadow-sm">
               <div>
                 <p class="text-xs text-royal-text-muted font-medium">Prefer direct phone assistance?</p>
-                <a class="font-serif text-xl font-bold text-royal-plum hover:text-royal-plum-deep transition-colors" href="tel:+919480182920">+91 94801 82920</a>
+                <a class="font-serif text-xl font-bold text-royal-plum hover:text-royal-plum-deep transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded"
+                  href="tel:+919480182920">+91 94801 82920</a>
               </div>
-              <a class="w-11 h-11 rounded-full bg-royal-plum text-white flex items-center justify-center shadow-md hover:bg-royal-plum-deep transition-all" href="tel:+919480182920">
+              <a class="w-11 h-11 rounded-full bg-royal-plum text-white flex items-center justify-center shadow-md hover:bg-royal-plum-deep transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                href="tel:+919480182920" aria-label="Call Reception">
                 <span class="material-symbols-outlined text-[20px]">call</span>
               </a>
             </div>
           </div>
 
           <!-- Right Booking Concierge Form -->
-          <div class="lg:col-span-7 bg-[#FAF7FC] p-6 lg:p-8 rounded-3xl border border-royal-border shadow-lg">
-            <form class="space-y-4" id="spa-booking-form" onsubmit="event.preventDefault(); submitWhatsAppBooking();">
-              
+          <div
+            class="lg:col-span-7 bg-[#FAF7FC] p-6 lg:p-8 rounded-3xl border border-royal-border shadow-lg reveal-on-scroll stagger-1">
+            <form class="space-y-4" id="spa-booking-form">
+
               <!-- Therapy Selection -->
               <div>
-                <label class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Select Therapy Modality</label>
-                <select class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent" id="booking-therapy">
-                  <option value="Turkish Hammam Eucalyptus Steam (₹2,499 - 60m)">Turkish Hammam Eucalyptus Steam & Body Polish — ₹2,499 (60m)</option>
-                  <option value="Kerala Ayurvedic Abhyanga & Shirodhara (₹2,799 - 75m)">Authentic Kerala Ayurvedic Abhyanga & Shirodhara — ₹2,799 (75m)</option>
-                  <option selected value="Classic Swedish Deep Relaxation (₹2,199 - 60m)">Classic Swedish Deep Relaxation — ₹2,199 (60m)</option>
-                  <option value="Intensive Deep Muscle Release (₹2,599 - 60m)">Intensive Deep Muscle & Myofascial Release — ₹2,599 (60m)</option>
-                  <option value="Traditional Thai Yoga Bodywork (₹2,399 - 60m)">Traditional Thai Yoga Bodywork — ₹2,399 (60m)</option>
-                  <option value="VIP Couples Sanctuary Suite (₹4,999 - 90m)">VIP Couples Sanctuary Suite Experience — ₹4,999 (90m)</option>
+                <label for="booking-therapy"
+                  class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Select Therapy
+                  Modality</label>
+                <select
+                  class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                  id="booking-therapy">
+                  <option value="Turkish Hammam Eucalyptus Steam (₹2,499 - 60m)">Turkish Hammam Eucalyptus Steam & Body
+                    Polish — ₹2,499 (60m)</option>
+                  <option value="Kerala Ayurvedic Abhyanga & Shirodhara (₹2,799 - 75m)">Authentic Kerala Ayurvedic
+                    Abhyanga & Shirodhara — ₹2,799 (75m)</option>
+                  <option selected value="Classic Swedish Deep Relaxation (₹2,199 - 60m)">Classic Swedish Deep
+                    Relaxation — ₹2,199 (60m)</option>
+                  <option value="Intensive Deep Muscle Release (₹2,599 - 60m)">Intensive Deep Muscle & Myofascial
+                    Release — ₹2,599 (60m)</option>
+                  <option value="Traditional Thai Yoga Bodywork (₹2,399 - 60m)">Traditional Thai Yoga Bodywork — ₹2,399
+                    (60m)</option>
+                  <option value="VIP Couples Sanctuary Suite (₹4,999 - 90m)">VIP Couples Sanctuary Suite Experience —
+                    ₹4,999 (90m)</option>
                 </select>
               </div>
 
               <!-- Date & Party Size -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Preferred Date</label>
-                  <input class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent" id="booking-date" type="date"/>
+                  <label for="booking-date"
+                    class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Preferred
+                    Date</label>
+                  <input
+                    class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                    id="booking-date" type="date" />
                 </div>
                 <div>
-                  <label class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Party Size</label>
-                  <select class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent" id="booking-party">
+                  <label for="booking-party"
+                    class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Party
+                    Size</label>
+                  <select
+                    class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                    id="booking-party">
                     <option value="Solo (1 Guest)">Solo (1 Guest)</option>
                     <option value="Couple (2 Guests - VIP Suite)">Couple (2 Guests - VIP Suite)</option>
                     <option value="Duo Friends (2 Guests)">Duo Friends (2 Guests)</option>
@@ -919,52 +1190,79 @@
 
               <!-- Time Slots -->
               <div>
-                <label class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Preferred Time Slot (11:00 AM – 10:00 PM)</label>
+                <span class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Preferred
+                  Time Slot (11:00 AM – 10:00 PM)</span>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center" id="time-slot-grid">
-                  <button class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95" onclick="selectSlot(this)" type="button">11:30 AM</button>
-                  <button class="slot-btn py-2 rounded-xl bg-royal-plum text-white text-xs font-semibold transition-all active:scale-95 shadow-sm" onclick="selectSlot(this)" type="button">01:00 PM</button>
-                  <button class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95" onclick="selectSlot(this)" type="button">03:00 PM</button>
-                  <button class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95" onclick="selectSlot(this)" type="button">04:30 PM</button>
-                  <button class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95" onclick="selectSlot(this)" type="button">06:00 PM</button>
-                  <button class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95" onclick="selectSlot(this)" type="button">07:30 PM</button>
-                  <button class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95" onclick="selectSlot(this)" type="button">08:30 PM</button>
-                  <button class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95" onclick="selectSlot(this)" type="button">09:00 PM</button>
+                  <button
+                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    type="button">11:30 AM</button>
+                  <button
+                    class="slot-btn py-2 rounded-xl bg-royal-plum text-white text-xs font-semibold transition-all active:scale-95 shadow-sm"
+                    type="button">01:00 PM</button>
+                  <button
+                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    type="button">03:00 PM</button>
+                  <button
+                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    type="button">04:30 PM</button>
+                  <button
+                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    type="button">06:00 PM</button>
+                  <button
+                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    type="button">07:30 PM</button>
+                  <button
+                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    type="button">08:30 PM</button>
+                  <button
+                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    type="button">09:00 PM</button>
                 </div>
-                <input id="selected-time" type="hidden" value="01:00 PM"/>
+                <input id="selected-time" type="hidden" value="01:00 PM" />
               </div>
 
               <!-- Therapist Preference & Guest Name -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Therapist Preference</label>
-                  <select class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent" id="booking-therapist">
+                  <label for="booking-therapist"
+                    class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Therapist
+                    Preference</label>
+                  <select
+                    class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                    id="booking-therapist">
                     <option value="No Preference">No Preference</option>
                     <option value="Female Therapist">Female Therapist</option>
                     <option value="Male Therapist">Male Therapist</option>
                   </select>
                 </div>
                 <div>
-                  <label class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Full Name</label>
-                  <input class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent" id="booking-name" placeholder="Enter your full name" required type="text"/>
+                  <label for="booking-name"
+                    class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Full
+                    Name</label>
+                  <input
+                    class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                    id="booking-name" placeholder="Enter your full name" required type="text" />
                 </div>
               </div>
 
               <!-- Notes -->
               <div>
-                <label class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Focus Areas / Specific Concerns (Optional)</label>
-                <input class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent" id="booking-notes" placeholder="E.g., lower back stiffness, neck stress, lighter pressure" type="text"/>
+                <label for="booking-notes"
+                  class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Focus Areas /
+                  Specific Concerns (Optional)</label>
+                <input
+                  class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                  id="booking-notes" placeholder="E.g., lower back stiffness, neck stress, lighter pressure"
+                  type="text" />
               </div>
 
-              <!-- Live WhatsApp Query Preview -->
-              <div class="p-4 rounded-xl bg-white border border-royal-border space-y-1">
-                <span class="text-[11px] text-royal-plum font-bold uppercase tracking-wider block">Generated WhatsApp Query Preview</span>
-                <p class="text-xs text-royal-text-muted font-mono leading-relaxed" id="whatsapp-preview">
-                  Hello Glow Spa, I would like to reserve Classic Swedish Deep Relaxation for 1 Guest on 01:00 PM.
-                </p>
-              </div>
+              <!-- WhatsApp Query Preview (Hidden from frontend per user request) -->
+              <p class="hidden" id="whatsapp-preview" aria-hidden="true"></p>
 
               <!-- Submit CTA -->
-              <button class="w-full py-4 rounded-2xl bg-gradient-to-r from-royal-plum to-royal-plum-deep hover:from-[#7E2483] hover:to-royal-plum text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-royal-plum/25 transition-all transform hover:-translate-y-0.5" type="submit">
+              <button
+                class="w-full py-4 rounded-2xl bg-gradient-to-r from-royal-plum to-royal-plum-deep hover:from-[#7E2483] hover:to-royal-plum text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-royal-plum/25 transition-all transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                type="submit">
                 <i class="fab fa-whatsapp text-lg"></i>
                 <span>Confirm & Send on WhatsApp (+91 94801 82920)</span>
               </button>
@@ -980,35 +1278,136 @@
     <!-- ========================================================================= -->
     <section class="py-16 bg-[#FAF7FC] border-y border-royal-border" id="atmosphere">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Tactile Interior Architecture</span>
+        <div class="text-center max-w-2xl mx-auto mb-10 reveal-on-scroll">
+          <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Tactile Interior
+            Architecture</span>
           <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold">Our Spa Atmosphere</h2>
           <p class="text-sm text-royal-text-muted mt-2">
-            Vertical fluted walnut panels, circular halo cove ceilings, Italian Carrara stone flooring, and enclosed hot hydro showers.
+            Vertical fluted walnut panels, circular halo cove ceilings, Italian Carrara stone flooring, and enclosed hot
+            hydro showers.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="rounded-3xl overflow-hidden relative group shadow-md border-2 border-white">
-            <img class="w-full h-80 object-cover group-hover:scale-105 transition-all duration-500" alt="Quiet hallway of Glow Spa with soft purple strip lighting" src="/assets/stitch_corridor_4k.jpg"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-royal-plum-deep/80 via-transparent to-transparent flex items-end p-6">
-              <span class="text-white font-serif text-lg font-medium">Acoustic Timber Corridors</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Real Space 1: Fluted Walnut Paneling & Reception Desk -->
+          <div
+            class="rounded-3xl overflow-hidden relative group shadow-md border-2 border-white reveal-on-scroll stagger-1 bg-royal-surface-card">
+            <div class="h-80 overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                height="320" decoding="async"
+                alt="Vertical fluted walnut panels and illuminated lotus reception desk at Glow Spa Kalaburagi"
+                src="/assets/reception-desk.jpg" />
+              <span
+                class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">The
+                Arrival Threshold</span>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                <span class="text-xs text-royal-thistle uppercase tracking-wider font-semibold">Vertical Fluted Walnut
+                  Panels</span>
+                <span class="font-serif text-lg font-medium">Reception & Lotus Insignia</span>
+              </div>
             </div>
           </div>
 
-          <div class="rounded-3xl overflow-hidden relative group shadow-md border-2 border-white">
-            <img class="w-full h-80 object-cover group-hover:scale-105 transition-all duration-500" alt="Private individual therapy room with violet backlighting" src="/assets/stitch_therapy_room_4k.jpg"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-royal-plum-deep/80 via-transparent to-transparent flex items-end p-6">
-              <span class="text-white font-serif text-lg font-medium">Private Somatic Suites</span>
+          <!-- Real Space 2: Circular Halo Cove Welcome Lounge -->
+          <div
+            class="rounded-3xl overflow-hidden relative group shadow-md border-2 border-white reveal-on-scroll stagger-2 bg-royal-surface-card">
+            <div class="h-80 overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                height="320" decoding="async"
+                alt="Circular halo cove ceilings and crystal chandelier welcome lounge at Glow Spa"
+                src="/assets/reception-lounge.jpg" />
+              <span
+                class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">Sanctuary
+                Lounge</span>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                <span class="text-xs text-royal-thistle uppercase tracking-wider font-semibold">Circular Halo Cove
+                  Ceilings</span>
+                <span class="font-serif text-lg font-medium">Crystal Chandelier & Arrival Lounge</span>
+              </div>
             </div>
           </div>
 
-          <div class="rounded-3xl overflow-hidden relative group shadow-md border-2 border-white">
-            <img class="w-full h-80 object-cover group-hover:scale-105 transition-all duration-500" alt="En-suite glass enclosed hot shower in Glow Spa" src="/assets/stitch_suite_shower_4k.jpg"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-royal-plum-deep/80 via-transparent to-transparent flex items-end p-6">
-              <span class="text-white font-serif text-lg font-medium">Attached En-Suite Glass Showers</span>
+          <!-- Real Space 3: Enclosed Hot Hydro Glass Shower Suite -->
+          <div
+            class="rounded-3xl overflow-hidden relative group shadow-md border-2 border-white reveal-on-scroll stagger-3 bg-royal-surface-card">
+            <div class="h-80 overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                height="320" decoding="async"
+                alt="Enclosed hot hydro glass shower inside private therapy suite at Glow Spa"
+                src="/assets/therapy-suite-shower.jpg" />
+              <span
+                class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">Hydrotherapy</span>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                <span class="text-xs text-royal-thistle uppercase tracking-wider font-semibold">Enclosed Hot Hydro
+                  Showers</span>
+                <span class="font-serif text-lg font-medium">Attached Glass Shower Suite</span>
+              </div>
             </div>
           </div>
+
+          <!-- Real Space 4: Italian Carrara Stone & Chromotherapy Suite -->
+          <div
+            class="rounded-3xl overflow-hidden relative group shadow-md border-2 border-white reveal-on-scroll stagger-4 bg-royal-surface-card">
+            <div class="h-80 overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                height="320" decoding="async"
+                alt="Private chromotherapy suite with Italian Carrara stone flooring at Glow Spa"
+                src="/assets/therapy-suite-purple.jpg" />
+              <span
+                class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">Private
+                Suites</span>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                <span class="text-xs text-royal-thistle uppercase tracking-wider font-semibold">Italian Carrara Stone
+                  Flooring</span>
+                <span class="font-serif text-lg font-medium">Private Chromotherapy AC Suite</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real Space 5: Master Couples & VIP Sanctuary Suite -->
+          <div
+            class="rounded-3xl overflow-hidden relative group shadow-md border-2 border-white reveal-on-scroll stagger-5 bg-royal-surface-card">
+            <div class="h-80 overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                height="320" decoding="async"
+                alt="Master VIP couples suite with geometric acoustic wallpaper and attached glass shower"
+                src="/assets/master-suite.jpg" />
+              <span
+                class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">VIP
+                Experience</span>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                <span class="text-xs text-royal-thistle uppercase tracking-wider font-semibold">Acoustic Geometric
+                  Wall</span>
+                <span class="font-serif text-lg font-medium">Master Couples & VIP Suite</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real Space 6: Traditional Thai & Tatami Bodywork Suite -->
+          <div
+            class="rounded-3xl overflow-hidden relative group shadow-md border-2 border-white reveal-on-scroll stagger-6 bg-royal-surface-card">
+            <div class="h-80 overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                height="320" decoding="async" alt="Traditional Thai tatami low platform bodywork suite at Glow Spa"
+                src="/assets/tatami-thai-suite.jpg" />
+              <span
+                class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-royal-plum border border-royal-border text-xs font-semibold shadow-sm">Traditional
+                Floorwork</span>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                <span class="text-xs text-royal-thistle uppercase tracking-wider font-semibold">Dedicated Floor Mat
+                  Suite</span>
+                <span class="font-serif text-lg font-medium">Traditional Thai Tatami Suite</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1018,11 +1417,13 @@
     <!-- ========================================================================= -->
     <section class="py-16 bg-white" id="reviews">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
-        
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
+
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 reveal-on-scroll">
           <div>
-            <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Guest Testimonials</span>
-            <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold">Words From Our Sanctuary Guests</h2>
+            <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Guest
+              Testimonials</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold">Words From Our Sanctuary
+              Guests</h2>
           </div>
           <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-royal-light border border-royal-border">
             <span class="font-serif text-3xl text-royal-plum font-bold">5.0</span>
@@ -1040,7 +1441,8 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="p-6 rounded-3xl bg-[#FAF7FB] border border-royal-border space-y-3 shadow-sm hover:shadow-md transition-shadow">
+          <div
+            class="p-6 rounded-3xl bg-[#FAF7FB] border border-royal-border space-y-3 shadow-sm hover:shadow-md transition-shadow reveal-on-scroll stagger-1">
             <div class="flex text-amber-500 text-sm">
               <span class="material-symbols-outlined text-[18px]">star</span>
               <span class="material-symbols-outlined text-[18px]">star</span>
@@ -1049,7 +1451,8 @@
               <span class="material-symbols-outlined text-[18px]">star</span>
             </div>
             <p class="text-xs text-royal-text-main leading-relaxed italic">
-              “Extremely clean and dignified environment. Having the private attached shower right inside the suite makes all the difference. The therapists are remarkably polite and well-trained.”
+              “Extremely clean and dignified environment. Having the private attached shower right inside the suite
+              makes all the difference. The therapists are remarkably polite and well-trained.”
             </p>
             <div class="pt-2 border-t border-royal-border/60">
               <p class="font-bold text-xs text-royal-text-main">Dr. Anand Kulkarni</p>
@@ -1057,7 +1460,8 @@
             </div>
           </div>
 
-          <div class="p-6 rounded-3xl bg-[#FAF7FB] border border-royal-border space-y-3 shadow-sm hover:shadow-md transition-shadow">
+          <div
+            class="p-6 rounded-3xl bg-[#FAF7FB] border border-royal-border space-y-3 shadow-sm hover:shadow-md transition-shadow reveal-on-scroll stagger-2">
             <div class="flex text-amber-500 text-sm">
               <span class="material-symbols-outlined text-[18px]">star</span>
               <span class="material-symbols-outlined text-[18px]">star</span>
@@ -1066,7 +1470,8 @@
               <span class="material-symbols-outlined text-[18px]">star</span>
             </div>
             <p class="text-xs text-royal-text-main leading-relaxed italic">
-              “Hands down the most authentic Kerala Abhyanga along Ram Mandir Road. The eucalyptus steam felt wonderful after a grueling workweek. Zero advance fuss—paid right at reception.”
+              “Hands down the most authentic Kerala Abhyanga along Ram Mandir Road. The eucalyptus steam felt wonderful
+              after a grueling workweek. Zero advance fuss—paid right at reception.”
             </p>
             <div class="pt-2 border-t border-royal-border/60">
               <p class="font-bold text-xs text-royal-text-main">Pooja Patil</p>
@@ -1074,7 +1479,8 @@
             </div>
           </div>
 
-          <div class="p-6 rounded-3xl bg-[#FAF7FB] border border-royal-border space-y-3 shadow-sm hover:shadow-md transition-shadow">
+          <div
+            class="p-6 rounded-3xl bg-[#FAF7FB] border border-royal-border space-y-3 shadow-sm hover:shadow-md transition-shadow reveal-on-scroll stagger-3">
             <div class="flex text-amber-500 text-sm">
               <span class="material-symbols-outlined text-[18px]">star</span>
               <span class="material-symbols-outlined text-[18px]">star</span>
@@ -1083,7 +1489,8 @@
               <span class="material-symbols-outlined text-[18px]">star</span>
             </div>
             <p class="text-xs text-royal-text-main leading-relaxed italic">
-              “The VIP couples room is spacious and fragrant. Very peaceful lighting, quiet AC units without irritating hums, and truly courteous hospitality. Highly recommended for couples.”
+              “The VIP couples room is spacious and fragrant. Very peaceful lighting, quiet AC units without irritating
+              hums, and truly courteous hospitality. Highly recommended for couples.”
             </p>
             <div class="pt-2 border-t border-royal-border/60">
               <p class="font-bold text-xs text-royal-text-main">Sunil & Deepa Biradar</p>
@@ -1093,27 +1500,55 @@
         </div>
 
         <!-- 50 Localities Pill Grid -->
-        <div class="mt-12 p-6 rounded-3xl bg-royal-light/80 border border-royal-border" id="localities">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-4 border-b border-royal-border">
+        <div class="mt-12 p-6 rounded-3xl bg-royal-light/80 border border-royal-border reveal-on-scroll"
+          id="localities">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-4 border-b border-royal-border">
             <div>
               <span class="text-xs uppercase tracking-wider text-royal-plum font-bold">Regional Connectivity</span>
-              <h3 class="font-serif text-xl text-royal-text-main font-semibold">Serving 50 Neighborhoods Across Kalaburagi</h3>
+              <h3 class="font-serif text-xl text-royal-text-main font-semibold">Serving 50 Neighborhoods Across
+                Kalaburagi</h3>
             </div>
             <p class="text-xs text-royal-text-muted">Reachable within 6 to 14 minutes via Ram Mandir Service Road</p>
           </div>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 pt-4 text-xs font-semibold text-royal-text-main">
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Ram Mandir Ring Rd</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Kotnoor Daryapur</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Sedam Road</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">GDA Layout</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">MSK Mill Area</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Station Road</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Brahampur</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Aiwan-e-Shahi</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Super Market Rd</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Kuvempu Nagar</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Shanti Nagar</div>
-            <div class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">Jewargi Colony</div>
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 pt-4 text-xs font-semibold text-royal-text-main">
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Ram Mandir Ring Rd</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Kotnoor Daryapur</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Sedam Road</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              GDA Layout</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              MSK Mill Area</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Station Road</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Brahampur</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Aiwan-e-Shahi</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Super Market Rd</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Kuvempu Nagar</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Shanti Nagar</div>
+            <div
+              class="p-3 rounded-xl bg-white border border-royal-border text-center shadow-sm hover:border-royal-plum transition-colors">
+              Jewargi Colony</div>
           </div>
         </div>
 
@@ -1125,30 +1560,38 @@
     <!-- ========================================================================= -->
     <section class="py-16 bg-[#FAF7FC] border-y border-royal-border" id="blogs">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal-on-scroll">
           <div>
-            <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Knowledge & Self-Care</span>
+            <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Knowledge &
+              Self-Care</span>
             <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold">Spa & Wellness Guides</h2>
-            <p class="text-sm text-royal-text-muted mt-1">Expert insights on therapeutic healing, hydrotherapy, and recovery in Kalaburagi.</p>
+            <p class="text-sm text-royal-text-muted mt-1">Expert insights on therapeutic healing, hydrotherapy, and
+              recovery in Kalaburagi.</p>
           </div>
           <div>
-            <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20would%20like%20to%20read%20more%20wellness%20guides" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-royal-plum border border-royal-border hover:bg-royal-light text-xs font-semibold shadow-sm transition-all">
+            <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20would%20like%20to%20read%20more%20wellness%20guides"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-royal-plum border border-royal-border hover:bg-royal-light text-xs font-semibold shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum">
               <span>Ask Our Wellness Concierge</span>
               <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
           </div>
         </div>
 
-        <!-- Blog Cards Grid -->
+        <!-- Blog Cards Grid (Monochrome 4K Photos) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          
+
           <!-- Blog Card 1 -->
-          <article class="bg-white rounded-3xl overflow-hidden border border-royal-border shadow-sm hover:shadow-lg hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <article
+            class="bg-white rounded-3xl overflow-hidden border border-royal-border shadow-sm hover:shadow-lg hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-1">
             <div>
-              <div class="h-44 overflow-hidden relative">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Eucalyptus steam bath guide" src="/assets/stitch_hammam_steam_4k.jpg"/>
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-royal-plum border border-royal-border">Hydrotherapy</span>
+              <div class="h-44 overflow-hidden relative bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="176" decoding="async" alt="Eucalyptus steam bath guide"
+                  src="/assets/stitch_hammam_steam_4k.jpg" />
+                <span
+                  class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-royal-plum border border-royal-border">Hydrotherapy</span>
               </div>
               <div class="p-5 space-y-2">
                 <div class="flex items-center gap-2 text-[11px] text-royal-text-muted">
@@ -1156,16 +1599,20 @@
                   <span>•</span>
                   <span>Hydrothermal Guide</span>
                 </div>
-                <h3 class="font-serif text-base text-royal-text-main font-semibold group-hover:text-royal-plum transition-colors leading-snug">
+                <h3
+                  class="font-serif text-base text-royal-text-main font-semibold group-hover:text-royal-plum transition-colors leading-snug">
                   The Science of Eucalyptus Steam & Attached En-Suite Showers
                 </h3>
                 <p class="text-xs text-royal-text-muted leading-relaxed">
-                  Why private steam immersion and warm water therapy immediately following massage multiply lymphatic detoxification by 300%.
+                  Why private steam immersion and warm water therapy immediately following massage multiply lymphatic
+                  detoxification by 300%.
                 </p>
               </div>
             </div>
             <div class="p-5 pt-0">
-              <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20am%20interested%20in%20the%20Eucalyptus%20Hammam%20Steam%20session" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-royal-plum hover:text-royal-plum-deep flex items-center gap-1">
+              <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20am%20interested%20in%20the%20Eucalyptus%20Hammam%20Steam%20session"
+                target="_blank" rel="noopener noreferrer"
+                class="text-xs font-bold text-royal-plum hover:text-royal-plum-deep flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded py-1">
                 <span>Book This Therapy</span>
                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
               </a>
@@ -1173,11 +1620,16 @@
           </article>
 
           <!-- Blog Card 2 -->
-          <article class="bg-white rounded-3xl overflow-hidden border border-royal-border shadow-sm hover:shadow-lg hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <article
+            class="bg-white rounded-3xl overflow-hidden border border-royal-border shadow-sm hover:shadow-lg hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-2">
             <div>
-              <div class="h-44 overflow-hidden relative">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Ayurvedic Abhyanga benefits" src="/assets/stitch_kerala_abhyanga_4k.jpg"/>
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-royal-plum border border-royal-border">Kerala Ayurveda</span>
+              <div class="h-44 overflow-hidden relative bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="176" decoding="async" alt="Ayurvedic Abhyanga benefits"
+                  src="/assets/stitch_kerala_abhyanga_4k.jpg" />
+                <span
+                  class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-royal-plum border border-royal-border">Kerala
+                  Ayurveda</span>
               </div>
               <div class="p-5 space-y-2">
                 <div class="flex items-center gap-2 text-[11px] text-royal-text-muted">
@@ -1185,16 +1637,20 @@
                   <span>•</span>
                   <span>Vedic Wisdom</span>
                 </div>
-                <h3 class="font-serif text-base text-royal-text-main font-semibold group-hover:text-royal-plum transition-colors leading-snug">
+                <h3
+                  class="font-serif text-base text-royal-text-main font-semibold group-hover:text-royal-plum transition-colors leading-snug">
                   107 Marma Energy Points: How Abhyanga Relieves Stress
                 </h3>
                 <p class="text-xs text-royal-text-muted leading-relaxed">
-                  How medicated herbal oils rhythmically stroked along your kinetic pathways calm the Vata dosha and cure chronic insomnia.
+                  How medicated herbal oils rhythmically stroked along your kinetic pathways calm the Vata dosha and
+                  cure chronic insomnia.
                 </p>
               </div>
             </div>
             <div class="p-5 pt-0">
-              <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20would%20like%20to%20book%20Kerala%20Abhyanga" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-royal-plum hover:text-royal-plum-deep flex items-center gap-1">
+              <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20would%20like%20to%20book%20Kerala%20Abhyanga"
+                target="_blank" rel="noopener noreferrer"
+                class="text-xs font-bold text-royal-plum hover:text-royal-plum-deep flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded py-1">
                 <span>Book This Therapy</span>
                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
               </a>
@@ -1202,11 +1658,16 @@
           </article>
 
           <!-- Blog Card 3 -->
-          <article class="bg-white rounded-3xl overflow-hidden border border-royal-border shadow-sm hover:shadow-lg hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <article
+            class="bg-white rounded-3xl overflow-hidden border border-royal-border shadow-sm hover:shadow-lg hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-3">
             <div>
-              <div class="h-44 overflow-hidden relative">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Deep tissue massage for desk workers" src="/assets/stitch_deep_tissue_4k.jpg"/>
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-royal-plum border border-royal-border">Postural Health</span>
+              <div class="h-44 overflow-hidden relative bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="176" decoding="async" alt="Deep tissue massage for desk workers"
+                  src="/assets/stitch_deep_tissue_4k.jpg" />
+                <span
+                  class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-royal-plum border border-royal-border">Postural
+                  Health</span>
               </div>
               <div class="p-5 space-y-2">
                 <div class="flex items-center gap-2 text-[11px] text-royal-text-muted">
@@ -1214,16 +1675,20 @@
                   <span>•</span>
                   <span>Ergonomics</span>
                 </div>
-                <h3 class="font-serif text-base text-royal-text-main font-semibold group-hover:text-royal-plum transition-colors leading-snug">
+                <h3
+                  class="font-serif text-base text-royal-text-main font-semibold group-hover:text-royal-plum transition-colors leading-snug">
                   Resolving Occupational Neck & Lower Back Tension
                 </h3>
                 <p class="text-xs text-royal-text-muted leading-relaxed">
-                  For doctors, executives, and commuters along Ram Mandir Road: how focused myofascial knot release eliminates nagging spinal pain.
+                  For doctors, executives, and commuters along Ram Mandir Road: how focused myofascial knot release
+                  eliminates nagging spinal pain.
                 </p>
               </div>
             </div>
             <div class="p-5 pt-0">
-              <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20am%20inquiring%20about%20Deep%20Tissue%20Therapy" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-royal-plum hover:text-royal-plum-deep flex items-center gap-1">
+              <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20am%20inquiring%20about%20Deep%20Tissue%20Therapy"
+                target="_blank" rel="noopener noreferrer"
+                class="text-xs font-bold text-royal-plum hover:text-royal-plum-deep flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded py-1">
                 <span>Book This Therapy</span>
                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
               </a>
@@ -1231,11 +1696,16 @@
           </article>
 
           <!-- Blog Card 4 -->
-          <article class="bg-white rounded-3xl overflow-hidden border border-royal-border shadow-sm hover:shadow-lg hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group">
+          <article
+            class="bg-white rounded-3xl overflow-hidden border border-royal-border shadow-sm hover:shadow-lg hover:border-royal-accent transition-all duration-300 flex flex-col justify-between group reveal-on-scroll stagger-4">
             <div>
-              <div class="h-44 overflow-hidden relative">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" alt="Couples wellness retreat guide" src="/assets/stitch_couples_vip_4k.jpg"/>
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-royal-plum border border-royal-border">Couples Retreat</span>
+              <div class="h-44 overflow-hidden relative bg-royal-surface-card">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" width="400"
+                  height="176" decoding="async" alt="Couples wellness retreat guide"
+                  src="/assets/stitch_couples_vip_4k.jpg" />
+                <span
+                  class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-royal-plum border border-royal-border">Couples
+                  Retreat</span>
               </div>
               <div class="p-5 space-y-2">
                 <div class="flex items-center gap-2 text-[11px] text-royal-text-muted">
@@ -1243,16 +1713,20 @@
                   <span>•</span>
                   <span>VIP Experience</span>
                 </div>
-                <h3 class="font-serif text-base text-royal-text-main font-semibold group-hover:text-royal-plum transition-colors leading-snug">
+                <h3
+                  class="font-serif text-base text-royal-text-main font-semibold group-hover:text-royal-plum transition-colors leading-snug">
                   Planning A Weekend Couple Retreat in Kalaburagi
                 </h3>
                 <p class="text-xs text-royal-text-muted leading-relaxed">
-                  Celebrate anniversaries and quiet weekends in our expansive Master VIP Suite featuring rose petal foot soaks and dual massages.
+                  Celebrate anniversaries and quiet weekends in our expansive Master VIP Suite featuring rose petal foot
+                  soaks and dual massages.
                 </p>
               </div>
             </div>
             <div class="p-5 pt-0">
-              <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20would%20like%20to%20reserve%20a%20VIP%20Couples%20Suite" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-royal-plum hover:text-royal-plum-deep flex items-center gap-1">
+              <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa,%20I%20would%20like%20to%20reserve%20a%20VIP%20Couples%20Suite"
+                target="_blank" rel="noopener noreferrer"
+                class="text-xs font-bold text-royal-plum hover:text-royal-plum-deep flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded py-1">
                 <span>Book This Therapy</span>
                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
               </a>
@@ -1268,28 +1742,33 @@
     <!-- ========================================================================= -->
     <section class="py-16 bg-white" id="faqs">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
-        
+
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
+
           <!-- Interactive Map Container -->
-          <div class="lg:col-span-7">
-            <div class="w-full h-[420px] rounded-3xl bg-royal-light shadow-md relative overflow-hidden border border-royal-border" id="leafletMap">
-              <div class="p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-md text-royal-text-main max-w-sm space-y-1 absolute bottom-4 left-4 z-[400] border border-royal-border">
+          <div class="lg:col-span-7 reveal-on-scroll">
+            <div
+              class="w-full h-[420px] rounded-3xl bg-royal-light shadow-md relative overflow-hidden border border-royal-border"
+              id="leafletMap">
+              <div
+                class="p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-md text-royal-text-main max-w-sm space-y-1 absolute bottom-4 left-4 z-[400] border border-royal-border">
                 <span class="text-xs text-royal-plum font-bold uppercase">Exact Location</span>
                 <p class="text-xs font-bold text-royal-text-main">Above Onyx The Italian Marble Store</p>
-                <p class="text-[11px] text-royal-text-muted">Ram Mandir Service Road, Near Dhanvantari Hospital, Kalaburagi 585102</p>
+                <p class="text-[11px] text-royal-text-muted">Ram Mandir Service Road, Near Dhanvantari Hospital,
+                  Kalaburagi 585102</p>
               </div>
             </div>
           </div>
 
           <!-- Access Details & Direct Links -->
-          <div class="lg:col-span-5 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-royal-light text-royal-plum border border-royal-border text-xs uppercase tracking-wider font-semibold">
+          <div class="lg:col-span-5 space-y-6 reveal-on-scroll stagger-1">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-royal-light text-royal-plum border border-royal-border text-xs uppercase tracking-wider font-semibold">
               <span>Find Us In Kalaburagi</span>
             </div>
-            
+
             <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold">Visit Our Sanctuary</h2>
-            
+
             <div class="space-y-1 text-sm text-royal-text-muted">
               <p class="text-royal-text-main font-bold">Glow Spa (Office No. 2, 1st Floor)</p>
               <p>Directly above Onyx The Italian Marble Store</p>
@@ -1300,15 +1779,18 @@
             <div class="p-4 rounded-2xl bg-royal-light/80 border border-royal-border space-y-1">
               <span class="text-xs text-royal-plum font-bold uppercase">Sanctuary Hours</span>
               <p class="font-serif text-lg text-royal-text-main font-bold">Open All 7 Days: 11:00 AM – 10:00 PM</p>
-              <p class="text-xs text-royal-text-muted">Continuous seven-day service. Last therapeutic check-in at 09:00 PM.</p>
+              <p class="text-xs text-royal-text-muted">Continuous seven-day service. Last therapeutic check-in at 09:00
+                PM.</p>
             </div>
 
             <div class="flex flex-wrap items-center gap-3 pt-2">
-              <a class="px-6 py-3 rounded-full bg-gradient-to-r from-royal-plum to-royal-plum-deep text-white hover:from-[#7E2483] hover:to-royal-plum text-xs font-semibold flex items-center gap-2 transition-all shadow-md" href="https://maps.google.com/?q=17.299732,76.819915" rel="noopener noreferrer" target="_blank">
+              <a class="px-6 py-3 rounded-full bg-gradient-to-r from-royal-plum to-royal-plum-deep text-white hover:from-[#7E2483] hover:to-royal-plum text-xs font-semibold flex items-center gap-2 transition-all shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                href="https://maps.google.com/?q=17.299732,76.819915" rel="noopener noreferrer" target="_blank">
                 <span>Open in Google Maps</span>
                 <span class="material-symbols-outlined text-[18px]">directions</span>
               </a>
-              <a class="px-6 py-3 rounded-full bg-white text-royal-plum hover:bg-royal-light text-xs font-semibold flex items-center gap-2 transition-all border border-royal-border shadow-sm" href="tel:+919480182920">
+              <a class="px-6 py-3 rounded-full bg-white text-royal-plum hover:bg-royal-light text-xs font-semibold flex items-center gap-2 transition-all border border-royal-border shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                href="tel:+919480182920">
                 <span>Call Reception</span>
                 <span class="material-symbols-outlined text-[18px]">call</span>
               </a>
@@ -1318,31 +1800,41 @@
         </div>
 
         <!-- FAQs Accordion -->
-        <div class="mt-16 pt-12 border-t border-royal-border">
+        <div class="mt-16 pt-12 border-t border-royal-border reveal-on-scroll">
           <div class="text-center max-w-2xl mx-auto mb-10">
-            <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Helpful Information</span>
-            <h3 class="font-serif text-2xl sm:text-3xl text-royal-text-main font-semibold">Frequently Asked Questions</h3>
+            <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Helpful
+              Information</span>
+            <h3 class="font-serif text-2xl sm:text-3xl text-royal-text-main font-semibold">Frequently Asked Questions
+            </h3>
           </div>
 
           <div class="max-w-3xl mx-auto space-y-4">
             <div class="p-5 rounded-2xl bg-[#FAF7FB] border border-royal-border space-y-2">
-              <h4 class="font-serif text-base font-semibold text-royal-text-main">What should I wear during my therapy?</h4>
+              <h4 class="font-serif text-base font-semibold text-royal-text-main">What should I wear during my therapy?
+              </h4>
               <p class="text-xs text-royal-text-muted leading-relaxed">
-                We provide high-grade disposable spa undergarments, fresh towels, and plush robes. Therapists practice professional draping techniques, exposing only the specific area being massaged. For Thai Yoga bodywork, loose comfortable attire is provided.
+                We provide high-grade disposable spa undergarments, fresh towels, and plush robes. Therapists practice
+                professional draping techniques, exposing only the specific area being massaged. For Thai Yoga bodywork,
+                loose comfortable attire is provided.
               </p>
             </div>
 
             <div class="p-5 rounded-2xl bg-[#FAF7FB] border border-royal-border space-y-2">
-              <h4 class="font-serif text-base font-semibold text-royal-text-main">Are therapists certified and verified?</h4>
+              <h4 class="font-serif text-base font-semibold text-royal-text-main">Are therapists certified and verified?
+              </h4>
               <p class="text-xs text-royal-text-muted leading-relaxed">
-                Yes, 100%. All therapists at Glow Spa are certified graduates of accredited wellness academies with documented professional credentials and police background verifications. They maintain respectful decorum at all times.
+                Yes, 100%. All therapists at Glow Spa are certified graduates of accredited wellness academies with
+                documented professional credentials and police background verifications. They maintain respectful
+                decorum at all times.
               </p>
             </div>
 
             <div class="p-5 rounded-2xl bg-[#FAF7FB] border border-royal-border space-y-2">
-              <h4 class="font-serif text-base font-semibold text-royal-text-main">Is advance booking mandatory, or can I walk in?</h4>
+              <h4 class="font-serif text-base font-semibold text-royal-text-main">Is advance booking mandatory, or can I
+                walk in?</h4>
               <p class="text-xs text-royal-text-muted leading-relaxed">
-                While walk-ins are welcomed based on room availability, we strongly recommend booking 1–2 hours ahead via WhatsApp to guarantee your preferred suite, AC setting, and therapist choice.
+                While walk-ins are welcomed based on room availability, we strongly recommend booking 1–2 hours ahead
+                via WhatsApp to guarantee your preferred suite, AC setting, and therapist choice.
               </p>
             </div>
           </div>
@@ -1359,18 +1851,21 @@
   <footer class="w-full bg-[#F5EEF7] border-t border-royal-border text-royal-text-muted">
     <div class="max-w-[1320px] mx-auto px-4 md:px-8 pt-16 pb-12">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-royal-border/80">
-        
+
         <!-- Col 1: Brand Info -->
         <div class="lg:col-span-4 space-y-4">
           <div class="flex items-center gap-3">
-            <img alt="Glow Spa Logo" class="h-9 w-auto" src="/assets/glow-spa-logo-transparent.png"/>
+            <img alt="Glow Spa Logo" width="36" height="36" class="h-9 w-auto"
+              src="/assets/glow-spa-logo-transparent.png" />
             <span class="font-serif text-2xl text-royal-plum font-semibold">Glow Spa</span>
           </div>
           <p class="text-xs text-royal-text-muted leading-relaxed max-w-sm">
-            Kalaburagi’s benchmark holistic day retreat. Fusing biophilic calm, restorative therapies, somatic care, and certified clinical hygiene protocols to restore equilibrium.
+            Kalaburagi’s benchmark holistic day retreat. Fusing biophilic calm, restorative therapies, somatic care, and
+            certified clinical hygiene protocols to restore equilibrium.
           </p>
           <div class="pt-1 flex items-center gap-3">
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-royal-border text-royal-plum text-xs font-semibold shadow-sm">
+            <div
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-royal-border text-royal-plum text-xs font-semibold shadow-sm">
               <span class="material-symbols-outlined text-[14px]">verified</span>
               <span>Clinical Grade Hygiene Protocol</span>
             </div>
@@ -1381,12 +1876,18 @@
         <div class="lg:col-span-3 space-y-3">
           <span class="text-xs uppercase tracking-wider text-royal-plum font-bold block">Sanctuary Modalities</span>
           <ul class="space-y-2 text-xs">
-            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Deep Tissue Somatic Decompression</a></li>
-            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Ayurvedic Herbal Shirodhara & Abhyanga</a></li>
-            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Detoxifying Turkish Hammam Steam</a></li>
-            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Classic Swedish Relaxation</a></li>
-            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Traditional Thai Yoga Bodywork</a></li>
-            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">VIP Couples Sanctuary Suite</a></li>
+            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Deep Tissue Somatic
+                Decompression</a></li>
+            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Ayurvedic Herbal Shirodhara
+                & Abhyanga</a></li>
+            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Detoxifying Turkish Hammam
+                Steam</a></li>
+            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Classic Swedish
+                Relaxation</a></li>
+            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">Traditional Thai Yoga
+                Bodywork</a></li>
+            <li><a class="hover:text-royal-plum transition-colors" href="#signature-catalog">VIP Couples Sanctuary
+                Suite</a></li>
           </ul>
         </div>
 
@@ -1413,11 +1914,13 @@
               <span class="material-symbols-outlined text-[16px] text-royal-plum">call</span>
               <span>+91 94801 82920</span>
             </a>
-            <a class="flex items-center gap-2 hover:text-royal-plum transition-colors" href="https://wa.me/919480182920" rel="noopener noreferrer" target="_blank">
+            <a class="flex items-center gap-2 hover:text-royal-plum transition-colors" href="https://wa.me/919480182920"
+              rel="noopener noreferrer" target="_blank">
               <i class="fab fa-whatsapp text-sm text-green-600"></i>
               <span>WhatsApp Desk</span>
             </a>
-            <a class="flex items-center gap-2 hover:text-royal-plum transition-colors" href="https://maps.google.com/?q=17.299732,76.819915" target="_blank" rel="noopener noreferrer">
+            <a class="flex items-center gap-2 hover:text-royal-plum transition-colors"
+              href="https://maps.google.com/?q=17.299732,76.819915" target="_blank" rel="noopener noreferrer">
               <span class="material-symbols-outlined text-[16px] text-royal-plum">directions</span>
               <span>Get Directions</span>
             </a>
@@ -1442,82 +1945,9 @@
     </div>
   </footer>
 
-  <!-- CLIENT-SIDE MICRO-INTERACTIONS & BOOKING SCRIPT -->
-  <script>
-    function selectSlot(btn) {
-      document.querySelectorAll('.slot-btn').forEach(b => {
-        b.className = 'slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95';
-      });
-      btn.className = 'slot-btn py-2 rounded-xl bg-royal-plum text-white text-xs font-semibold transition-all active:scale-95 shadow-sm';
-      document.getElementById('selected-time').value = btn.innerText.trim();
-      updatePreview();
-    }
-
-    function updatePreview() {
-      const therapy = document.getElementById('booking-therapy').value;
-      const party = document.getElementById('booking-party').value;
-      const time = document.getElementById('selected-time').value;
-      const name = document.getElementById('booking-name').value || 'Guest';
-      const previewText = `Hello Glow Spa, I would like to reserve ${therapy} for ${party} at ${time}. Name: ${name}.`;
-      document.getElementById('whatsapp-preview').innerText = previewText;
-    }
-
-    document.getElementById('booking-therapy').addEventListener('change', updatePreview);
-    document.getElementById('booking-party').addEventListener('change', updatePreview);
-    document.getElementById('booking-name').addEventListener('input', updatePreview);
-
-    // Set default date to today
-    const dateInput = document.getElementById('booking-date');
-    if (dateInput) {
-      const today = new Date().toISOString().split('T')[0];
-      dateInput.value = today;
-      dateInput.min = today;
-    }
-
-    function submitWhatsAppBooking() {
-      const therapy = document.getElementById('booking-therapy').value;
-      const date = document.getElementById('booking-date').value || 'Today';
-      const party = document.getElementById('booking-party').value;
-      const time = document.getElementById('selected-time').value;
-      const therapist = document.getElementById('booking-therapist').value;
-      const name = document.getElementById('booking-name').value;
-      const notes = document.getElementById('booking-notes').value;
-
-      let msg = `Hello Glow Spa Kalaburagi,%0A%0AI wish to reserve an appointment:%0A• Name: ${encodeURIComponent(name)}%0A• Modality: ${encodeURIComponent(therapy)}%0A• Date: ${encodeURIComponent(date)}%0A• Time Slot: ${encodeURIComponent(time)}%0A• Party Size: ${encodeURIComponent(party)}%0A• Therapist Preference: ${encodeURIComponent(therapist)}`;
-      if (notes) {
-        msg += `%0A• Notes: ${encodeURIComponent(notes)}`;
-      }
-      msg += `%0A%0APlease confirm availability. Thank you!`;
-
-      window.open(`https://wa.me/919480182920?text=${msg}`, '_blank');
-    }
-
-    // Mobile Drawer Toggle
-    const mobileToggle = document.getElementById('mobileNavToggle');
-    const mobileClose = document.getElementById('mobileNavClose');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-
-    if (mobileToggle && mobileDrawer) {
-      mobileToggle.addEventListener('click', () => {
-        mobileDrawer.classList.remove('hidden');
-      });
-    }
-
-    if (mobileClose && mobileDrawer) {
-      mobileClose.addEventListener('click', () => {
-        mobileDrawer.classList.add('hidden');
-      });
-    }
-
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        if (mobileDrawer) mobileDrawer.classList.add('hidden');
-      });
-    });
-  </script>
-
-  <!-- Vite Main Logic Bundle -->
+  <!-- Bundled High-Performance Interactive Logic -->
   <script type="module" src="/src/main.js"></script>
 
 </body>
+
 </html>

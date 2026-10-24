@@ -1,6 +1,6 @@
 # Glow-Spa
 
-> Luxury wellness sanctuary web application for **Glow Spa** (formerly Glow Family Spa) located in Kalaburagi (Gulbarga), Karnataka.
+> Luxury wellness sanctuary web application for **Glow Spa** (formerly Glow Spa) located in Kalaburagi (Gulbarga), Karnataka.
 
 ## 🌿 Highlights & Architectural Features
 
@@ -58,7 +58,7 @@ npm run preview
 
 ## 📍 Sanctuary Location
 
-**Glow Spa (Glow Family Spa)**  
+**Glow Spa (Glow Spa)**  
 Office No. 2, First Floor, Above Onyx The Italian Marble Store  
 Ram Mandir Service Road, Near Dhanvantari Hospital, Daryapur / Kotnoor  
 Kalaburagi (Gulbarga), Karnataka 585102  
