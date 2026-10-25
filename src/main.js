@@ -49,7 +49,9 @@ function initSmoothScroll() {
         const targetEl = document.querySelector(targetId);
         if (targetEl) {
           e.preventDefault();
-          lenis.scrollTo(targetEl, { offset: -80 });
+          const header = document.getElementById('site-header');
+          const headerHeight = header ? header.offsetHeight : 80;
+          lenis.scrollTo(targetEl, { offset: -(headerHeight + 10) });
           history.pushState(null, null, targetId);
         }
       }
@@ -179,9 +181,9 @@ function initBookingConcierge() {
   slotButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       slotButtons.forEach(b => {
-        b.className = 'slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95';
+        b.className = 'slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-[11px] sm:text-xs font-semibold transition-all active:scale-95';
       });
-      btn.className = 'slot-btn py-2 rounded-xl bg-royal-plum text-white text-xs font-semibold transition-all active:scale-95 shadow-sm';
+      btn.className = 'slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-royal-plum text-white text-[11px] sm:text-xs font-semibold transition-all active:scale-95 shadow-sm';
       if (timeInput) timeInput.value = btn.innerText.trim();
       updatePreview();
     });

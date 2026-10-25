@@ -57,6 +57,9 @@
           fontFamily: {
             serif: ["'Playfair Display'", "Georgia", "serif"],
             sans: ["'Plus Jakarta Sans'", "system-ui", "sans-serif"]
+          },
+          screens: {
+            'xs': '420px'
           }
         }
       }
@@ -74,6 +77,17 @@
         color: #260D2E;
         font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
         overflow-x: hidden;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    @media (min-width: 640px) {
+      html {
+        scroll-padding-top: 110px;
       }
     }
 
@@ -183,9 +197,9 @@
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-r from-[#FAF5FB]/95 via-[#F4E9F6]/95 to-[#FAF5FB]/95 backdrop-blur-xl border-b border-royal-border/50"
     id="site-header">
     <div
-      class="bg-[#F8F1F9]/40 text-royal-plum py-2 px-4 md:px-8 text-center text-xs tracking-wider uppercase border-b border-royal-border/30 flex items-center justify-center gap-2 font-medium">
-      <span class="material-symbols-outlined text-[15px] text-royal-gold">location_on</span>
-      <span>Above Onyx Italian Marble, Ram Mandir Service Rd, Kalaburagi</span>
+      class="bg-[#F8F1F9]/40 text-royal-plum py-1.5 sm:py-2 px-3 sm:px-8 text-center text-[10px] sm:text-xs tracking-wider uppercase border-b border-royal-border/30 flex items-center justify-center gap-1.5 sm:gap-2 font-medium">
+      <span class="material-symbols-outlined text-[13px] sm:text-[15px] text-royal-gold">location_on</span>
+      <span class="truncate max-w-[290px] xs:max-w-none">Above Onyx Italian Marble, Ram Mandir Service Rd, Kalaburagi</span>
       <span class="hidden md:inline text-royal-border">•</span>
       <span class="hidden md:inline">Open 7 Days: 11:00 AM – 10:00 PM</span>
       <span class="hidden lg:inline text-royal-border">•</span>
@@ -193,19 +207,18 @@
     </div>
 
     <!-- MAIN NAVBAR (BLENDED WITH HEADER & HOME CONTENT, NO WHITE BACKGROUND) -->
-    <div class="h-20 bg-transparent">
-      <div class="max-w-[1320px] mx-auto h-full px-4 md:px-8 flex items-center justify-between gap-4">
+    <div class="h-16 sm:h-20 bg-transparent">
+      <div class="max-w-[1320px] mx-auto h-full px-3 sm:px-6 md:px-8 flex items-center justify-between gap-2 sm:gap-4">
 
         <!-- Brand Identity Lockup -->
         <a href="#hero"
-          class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded-lg p-1">
+          class="flex items-center gap-2 sm:gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded-lg p-0.5 sm:p-1 shrink-0">
           <img alt="Glow Spa Logo" width="36" height="36"
-            class="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+            class="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
             src="/assets/glow-spa-logo-transparent.png" />
           <div class="flex flex-col">
-            <span class="font-serif text-2xl text-royal-plum tracking-tight font-semibold leading-none">Glow Spa</span>
-            <span class="text-[10px] tracking-widest text-royal-text-muted uppercase font-semibold mt-0.5">Kalaburagi
-              Sanctuary</span>
+            <span class="font-serif text-xl sm:text-2xl text-royal-plum tracking-tight font-semibold leading-none">Glow Spa</span>
+            <span class="text-[9px] sm:text-[10px] tracking-widest text-royal-text-muted uppercase font-semibold mt-0.5">Kalaburagi Sanctuary</span>
           </div>
         </a>
 
@@ -281,42 +294,6 @@
                   <div class="text-[11px] text-royal-text-muted">Timber Acoustics & Ambient Cove</div>
                 </div>
               </a>
-
-              <a href="#reviews"
-                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div
-                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
-                  <span class="material-symbols-outlined text-[18px]">star</span>
-                </div>
-                <div>
-                  <div class="font-semibold text-xs text-royal-text-main">Guest Reviews</div>
-                  <div class="text-[11px] text-royal-text-muted">5.0 Star Rating (230+ Reviews)</div>
-                </div>
-              </a>
-
-              <a href="#localities"
-                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div
-                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
-                  <span class="material-symbols-outlined text-[18px]">explore</span>
-                </div>
-                <div>
-                  <div class="font-semibold text-xs text-royal-text-main">50 Neighborhoods</div>
-                  <div class="text-[11px] text-royal-text-muted">Ram Mandir Corridor Connectivity</div>
-                </div>
-              </a>
-
-              <a href="#faqs"
-                class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-royal-surface-card transition-colors group">
-                <div
-                  class="w-8 h-8 rounded-lg bg-royal-light flex items-center justify-center text-royal-plum group-hover:bg-royal-plum group-hover:text-white transition-colors">
-                  <span class="material-symbols-outlined text-[18px]">help_outline</span>
-                </div>
-                <div>
-                  <div class="font-semibold text-xs text-royal-text-main">FAQs & Guidelines</div>
-                  <div class="text-[11px] text-royal-text-muted">What to Expect & Preparation</div>
-                </div>
-              </a>
             </div>
           </div>
 
@@ -325,8 +302,8 @@
             class="hover:text-royal-plum transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded">Blogs</a>
         </nav>
 
-        <!-- RIGHT ACTION CTAS (Clean & Royal, Spa Audio REMOVED) -->
-        <div class="flex items-center gap-3">
+        <!-- RIGHT ACTION CTAS -->
+        <div class="flex items-center gap-2 sm:gap-3">
           <!-- WhatsApp Direct -->
           <a class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-royal-surface-warm text-royal-emerald hover:bg-royal-light transition-all text-xs font-semibold border border-royal-border shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
             href="https://wa.me/919480182920" rel="noopener noreferrer" target="_blank" aria-label="Chat on WhatsApp">
@@ -335,17 +312,18 @@
           </a>
 
           <!-- Book Appointment CTA -->
-          <a class="px-5 md:px-6 py-2.5 rounded-full bg-gradient-to-r from-royal-plum to-royal-plum-deep text-white hover:from-[#7E2483] hover:to-royal-plum transition-all shadow-[0_4px_16px_rgba(110,32,114,0.25)] text-xs md:text-sm font-semibold flex items-center gap-2 transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+          <a class="px-3.5 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-royal-plum to-royal-plum-deep text-white hover:from-[#7E2483] hover:to-royal-plum transition-all shadow-[0_4px_16px_rgba(110,32,114,0.25)] text-xs md:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum shrink-0"
             href="#reservation-concierge">
-            <span>Book Appointment</span>
-            <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+            <span class="hidden xs:inline">Book Appointment</span>
+            <span class="xs:hidden">Book Now</span>
+            <span class="material-symbols-outlined text-[16px] sm:text-[18px]">calendar_month</span>
           </a>
 
           <!-- Mobile Hamburger Button -->
           <button id="mobileNavToggle"
-            class="lg:hidden w-10 h-10 rounded-full bg-royal-surface-warm border border-royal-border flex items-center justify-center text-royal-plum hover:bg-royal-light transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+            class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-royal-surface-warm border border-royal-border flex items-center justify-center text-royal-plum hover:bg-royal-light transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum shrink-0"
             aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
-            <span class="material-symbols-outlined text-[22px]">menu</span>
+            <span class="material-symbols-outlined text-[20px] sm:text-[22px]">menu</span>
           </button>
         </div>
 
@@ -392,17 +370,11 @@
                 Rituals</a>
               <a href="#atmosphere"
                 class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Atmosphere & Suites</a>
-              <a href="#reviews" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">Guest
-                Reviews</a>
-              <a href="#localities" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">50
-                Neighborhoods</a>
-              <a href="#faqs" class="mobile-nav-link block text-sm text-royal-text-main hover:text-royal-plum">FAQs</a>
             </div>
           </div>
 
           <a href="#blogs"
-            class="mobile-nav-link block font-medium text-base text-royal-text-main hover:text-royal-plum pt-2">Blogs &
-            Insights</a>
+            class="mobile-nav-link block font-medium text-base text-royal-text-main hover:text-royal-plum pt-2">Blogs</a>
         </nav>
       </div>
 
@@ -546,7 +518,7 @@
     <!-- ========================================================================= -->
     <!-- 3. 4 TRUST PILLARS / ARCHITECTURAL STANDARDS -->
     <!-- ========================================================================= -->
-    <section class="py-14 bg-white" id="standards">
+    <section class="py-12 sm:py-14 bg-white scroll-mt-20 sm:scroll-mt-28" id="standards">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
@@ -613,7 +585,7 @@
     <!-- ========================================================================= -->
     <!-- 4. ABOUT US & PHILOSOPHY (ROYAL LIGHT EDITORIAL COLLAGE) -->
     <!-- ========================================================================= -->
-    <section class="py-16 bg-[#FAF7FC] border-y border-royal-border" id="about">
+    <section class="py-12 sm:py-16 bg-[#FAF7FC] border-y border-royal-border scroll-mt-20 sm:scroll-mt-28" id="about">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
@@ -691,7 +663,7 @@
     <!-- ========================================================================= -->
     <!-- 5. CURATED MODALITIES & PRICING CATALOG (SERVICES) -->
     <!-- ========================================================================= -->
-    <section class="py-16 bg-white" id="signature-catalog">
+    <section class="py-12 sm:py-16 bg-white scroll-mt-20 sm:scroll-mt-28" id="signature-catalog">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
 
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal-on-scroll">
@@ -949,7 +921,7 @@
     <!-- ========================================================================= -->
     <!-- 6. SCIENTIFIC WELLNESS BENEFITS & THERAPEUTIC RITUALS (LIGHT ROYAL) -->
     <!-- ========================================================================= -->
-    <section class="py-16 bg-[#F6EEF8] border-y border-royal-border" id="rituals">
+    <section class="py-12 sm:py-16 bg-[#F6EEF8] border-y border-royal-border scroll-mt-20 sm:scroll-mt-28" id="rituals">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
@@ -1073,50 +1045,50 @@
     <!-- ========================================================================= -->
     <!-- 7. INTERACTIVE ONLINE RESERVATION CONCIERGE -->
     <!-- ========================================================================= -->
-    <section class="py-16 bg-white" id="reservation-concierge">
+    <section class="py-12 sm:py-16 bg-white scroll-mt-20 sm:scroll-mt-28" id="reservation-concierge">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
           <!-- Left Value Stack -->
-          <div class="lg:col-span-5 space-y-6 reveal-on-scroll">
+          <div class="lg:col-span-5 space-y-5 sm:space-y-6 reveal-on-scroll">
             <div
               class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-royal-light text-royal-plum border border-royal-border text-xs uppercase tracking-wider font-semibold">
               <span>Easy Online Reservation</span>
             </div>
 
-            <h2 class="font-serif text-3xl sm:text-4xl text-royal-text-main font-semibold leading-tight">
+            <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-royal-text-main font-semibold leading-tight">
               Reserve Your Peaceful Moment
             </h2>
 
-            <p class="text-sm text-royal-text-muted leading-relaxed">
+            <p class="text-xs sm:text-sm text-royal-text-muted leading-relaxed">
               Step away from routine fatigue. Select your preferred therapy and schedule an appointment in seconds. Our
               front desk team will instantly confirm availability via WhatsApp or direct phone call.
             </p>
 
-            <div class="space-y-3 pt-2">
-              <div class="flex items-start gap-3 p-4 rounded-2xl bg-royal-light/70 border border-royal-border">
-                <span class="material-symbols-outlined text-royal-plum mt-0.5">verified_user</span>
+            <div class="space-y-2.5 sm:space-y-3 pt-1 sm:pt-2">
+              <div class="flex items-start gap-3 p-3.5 sm:p-4 rounded-2xl bg-royal-light/70 border border-royal-border">
+                <span class="material-symbols-outlined text-royal-plum mt-0.5 text-[20px]">verified_user</span>
                 <div>
                   <p class="text-xs font-bold text-royal-text-main">Zero Advance Payment Required</p>
-                  <p class="text-xs text-royal-text-muted">Settle conveniently upon arrival via UPI, Cash, or
+                  <p class="text-[11px] sm:text-xs text-royal-text-muted">Settle conveniently upon arrival via UPI, Cash, or
                     Credit/Debit Card.</p>
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-4 rounded-2xl bg-royal-light/70 border border-royal-border">
-                <span class="material-symbols-outlined text-royal-plum mt-0.5">shield</span>
+              <div class="flex items-start gap-3 p-3.5 sm:p-4 rounded-2xl bg-royal-light/70 border border-royal-border">
+                <span class="material-symbols-outlined text-royal-plum mt-0.5 text-[20px]">shield</span>
                 <div>
                   <p class="text-xs font-bold text-royal-text-main">Attached En-Suite Showers & Discretion</p>
-                  <p class="text-xs text-royal-text-muted">Complete acoustic privacy with dedicated hot-water glass
+                  <p class="text-[11px] sm:text-xs text-royal-text-muted">Complete acoustic privacy with dedicated hot-water glass
                     showers in each suite.</p>
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-4 rounded-2xl bg-royal-light/70 border border-royal-border">
-                <span class="material-symbols-outlined text-royal-plum mt-0.5">group</span>
+              <div class="flex items-start gap-3 p-3.5 sm:p-4 rounded-2xl bg-royal-light/70 border border-royal-border">
+                <span class="material-symbols-outlined text-royal-plum mt-0.5 text-[20px]">group</span>
                 <div>
                   <p class="text-xs font-bold text-royal-text-main">Choice of Certified Therapists</p>
-                  <p class="text-xs text-royal-text-muted">Professional male and female practitioners maintaining
+                  <p class="text-[11px] sm:text-xs text-royal-text-muted">Professional male and female practitioners maintaining
                     respectful decorum.</p>
                 </div>
               </div>
@@ -1124,31 +1096,31 @@
 
             <!-- Direct Desk Box -->
             <div
-              class="p-5 rounded-2xl bg-gradient-to-r from-royal-light to-white border border-royal-border text-royal-text-main flex items-center justify-between shadow-sm">
+              class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-royal-light to-white border border-royal-border text-royal-text-main flex items-center justify-between shadow-sm">
               <div>
-                <p class="text-xs text-royal-text-muted font-medium">Prefer direct phone assistance?</p>
-                <a class="font-serif text-xl font-bold text-royal-plum hover:text-royal-plum-deep transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded"
+                <p class="text-[11px] sm:text-xs text-royal-text-muted font-medium">Prefer direct phone assistance?</p>
+                <a class="font-serif text-lg sm:text-xl font-bold text-royal-plum hover:text-royal-plum-deep transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum rounded"
                   href="tel:+919480182920">+91 94801 82920</a>
               </div>
-              <a class="w-11 h-11 rounded-full bg-royal-plum text-white flex items-center justify-center shadow-md hover:bg-royal-plum-deep transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+              <a class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-royal-plum text-white flex items-center justify-center shadow-md hover:bg-royal-plum-deep transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
                 href="tel:+919480182920" aria-label="Call Reception">
-                <span class="material-symbols-outlined text-[20px]">call</span>
+                <span class="material-symbols-outlined text-[18px] sm:text-[20px]">call</span>
               </a>
             </div>
           </div>
 
           <!-- Right Booking Concierge Form -->
           <div
-            class="lg:col-span-7 bg-[#FAF7FC] p-6 lg:p-8 rounded-3xl border border-royal-border shadow-lg reveal-on-scroll stagger-1">
-            <form class="space-y-4" id="spa-booking-form">
+            class="lg:col-span-7 bg-[#FAF7FC] p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl border border-royal-border shadow-lg reveal-on-scroll stagger-1">
+            <form class="space-y-3.5 sm:space-y-4" id="spa-booking-form">
 
               <!-- Therapy Selection -->
               <div>
                 <label for="booking-therapy"
-                  class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Select Therapy
+                  class="block text-[11px] sm:text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Select Therapy
                   Modality</label>
                 <select
-                  class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                  class="w-full max-w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
                   id="booking-therapy">
                   <option value="Turkish Hammam Eucalyptus Steam (₹2,499 - 60m)">Turkish Hammam Eucalyptus Steam & Body
                     Polish — ₹2,499 (60m)</option>
@@ -1166,21 +1138,21 @@
               </div>
 
               <!-- Date & Party Size -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label for="booking-date"
-                    class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Preferred
+                    class="block text-[11px] sm:text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Preferred
                     Date</label>
                   <input
-                    class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                    class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
                     id="booking-date" type="date" />
                 </div>
                 <div>
                   <label for="booking-party"
-                    class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Party
+                    class="block text-[11px] sm:text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Party
                     Size</label>
                   <select
-                    class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                    class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
                     id="booking-party">
                     <option value="Solo (1 Guest)">Solo (1 Guest)</option>
                     <option value="Couple (2 Guests - VIP Suite)">Couple (2 Guests - VIP Suite)</option>
@@ -1191,45 +1163,45 @@
 
               <!-- Time Slots -->
               <div>
-                <span class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Preferred
+                <span class="block text-[11px] sm:text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Preferred
                   Time Slot (11:00 AM – 10:00 PM)</span>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center" id="time-slot-grid">
+                <div class="grid grid-cols-4 gap-1.5 sm:gap-2 text-center" id="time-slot-grid">
                   <button
-                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    class="slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-[11px] sm:text-xs font-semibold transition-all active:scale-95"
                     type="button">11:30 AM</button>
                   <button
-                    class="slot-btn py-2 rounded-xl bg-royal-plum text-white text-xs font-semibold transition-all active:scale-95 shadow-sm"
+                    class="slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-royal-plum text-white text-[11px] sm:text-xs font-semibold transition-all active:scale-95 shadow-sm"
                     type="button">01:00 PM</button>
                   <button
-                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    class="slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-[11px] sm:text-xs font-semibold transition-all active:scale-95"
                     type="button">03:00 PM</button>
                   <button
-                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    class="slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-[11px] sm:text-xs font-semibold transition-all active:scale-95"
                     type="button">04:30 PM</button>
                   <button
-                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    class="slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-[11px] sm:text-xs font-semibold transition-all active:scale-95"
                     type="button">06:00 PM</button>
                   <button
-                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    class="slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-[11px] sm:text-xs font-semibold transition-all active:scale-95"
                     type="button">07:30 PM</button>
                   <button
-                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    class="slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-[11px] sm:text-xs font-semibold transition-all active:scale-95"
                     type="button">08:30 PM</button>
                   <button
-                    class="slot-btn py-2 rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-xs font-semibold transition-all active:scale-95"
+                    class="slot-btn py-2 px-1 rounded-lg sm:rounded-xl bg-white border border-royal-border hover:bg-royal-light text-royal-text-main text-[11px] sm:text-xs font-semibold transition-all active:scale-95"
                     type="button">09:00 PM</button>
                 </div>
                 <input id="selected-time" type="hidden" value="01:00 PM" />
               </div>
 
               <!-- Therapist Preference & Guest Name -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label for="booking-therapist"
-                    class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Therapist
+                    class="block text-[11px] sm:text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Therapist
                     Preference</label>
                   <select
-                    class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                    class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
                     id="booking-therapist">
                     <option value="No Preference">No Preference</option>
                     <option value="Female Therapist">Female Therapist</option>
@@ -1238,10 +1210,10 @@
                 </div>
                 <div>
                   <label for="booking-name"
-                    class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Full
+                    class="block text-[11px] sm:text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Full
                     Name</label>
                   <input
-                    class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                    class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
                     id="booking-name" placeholder="Enter your full name" required type="text" />
                 </div>
               </div>
@@ -1249,26 +1221,27 @@
               <!-- Notes -->
               <div>
                 <label for="booking-notes"
-                  class="block text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Focus Areas /
+                  class="block text-[11px] sm:text-xs font-bold text-royal-text-main mb-1.5 uppercase tracking-wider">Focus Areas /
                   Specific Concerns (Optional)</label>
                 <input
-                  class="w-full px-4 py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
+                  class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-royal-border text-royal-text-main text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-royal-accent"
                   id="booking-notes" placeholder="E.g., lower back stiffness, neck stress, lighter pressure"
                   type="text" />
               </div>
 
-              <!-- WhatsApp Query Preview (Hidden from frontend per user request) -->
+              <!-- WhatsApp Query Preview -->
               <p class="hidden" id="whatsapp-preview" aria-hidden="true"></p>
 
               <!-- Submit CTA -->
               <button
-                class="w-full py-4 rounded-2xl bg-gradient-to-r from-royal-plum to-royal-plum-deep hover:from-[#7E2483] hover:to-royal-plum text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-royal-plum/25 transition-all transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
+                class="w-full py-3.5 sm:py-4 px-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-royal-plum to-royal-plum-deep hover:from-[#7E2483] hover:to-royal-plum text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-royal-plum/25 transition-all transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-plum"
                 type="submit">
                 <i class="fab fa-whatsapp text-lg"></i>
                 <span>Confirm & Send on WhatsApp (+91 94801 82920)</span>
               </button>
             </form>
           </div>
+
 
         </div>
       </div>
@@ -1277,7 +1250,7 @@
     <!-- ========================================================================= -->
     <!-- 8. ATMOSPHERE GALLERY SHOWCASE -->
     <!-- ========================================================================= -->
-    <section class="py-16 bg-[#FAF7FC] border-y border-royal-border" id="atmosphere">
+    <section class="py-12 sm:py-16 bg-[#FAF7FC] border-y border-royal-border scroll-mt-20 sm:scroll-mt-28" id="atmosphere">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 reveal-on-scroll">
           <span class="text-xs uppercase tracking-widest text-royal-plum font-semibold block mb-2">Tactile Interior
@@ -1416,7 +1389,7 @@
     <!-- ========================================================================= -->
     <!-- 9. GUEST TESTIMONIALS & REVIEWS -->
     <!-- ========================================================================= -->
-    <section class="py-16 bg-white" id="reviews">
+    <section class="py-12 sm:py-16 bg-white scroll-mt-20 sm:scroll-mt-28" id="reviews">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
 
         <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 reveal-on-scroll">
@@ -1501,7 +1474,7 @@
         </div>
 
         <!-- 50 Localities Pill Grid -->
-        <div class="mt-12 p-6 rounded-3xl bg-royal-light/80 border border-royal-border reveal-on-scroll"
+        <div class="mt-12 p-4 sm:p-6 rounded-3xl bg-royal-light/80 border border-royal-border reveal-on-scroll scroll-mt-20 sm:scroll-mt-28"
           id="localities">
           <div
             class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-4 border-b border-royal-border">
@@ -1559,7 +1532,7 @@
     <!-- ========================================================================= -->
     <!-- 10. DEDICATED BLOGS & WELLNESS INSIGHTS SECTION -->
     <!-- ========================================================================= -->
-    <section class="py-16 bg-[#FAF7FC] border-y border-royal-border" id="blogs">
+    <section class="py-12 sm:py-16 bg-[#FAF7FC] border-y border-royal-border scroll-mt-20 sm:scroll-mt-28" id="blogs">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
 
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal-on-scroll">
@@ -1741,7 +1714,7 @@
     <!-- ========================================================================= -->
     <!-- 11. SANCTUARY LOCATION, INTERACTIVE LEAFLET MAP & FAQS -->
     <!-- ========================================================================= -->
-    <section class="py-16 bg-white" id="faqs">
+    <section class="py-12 sm:py-16 bg-white scroll-mt-20 sm:scroll-mt-28" id="faqs">
       <div class="max-w-[1320px] mx-auto px-4 md:px-8">
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
