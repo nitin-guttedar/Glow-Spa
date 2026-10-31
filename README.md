@@ -62,7 +62,7 @@ npm run preview
 Office No. 2, First Floor, Above Onyx The Italian Marble Store  
 Ram Mandir Service Road, Near Dhanvantari Hospital, Daryapur / Kotnoor  
 Kalaburagi (Gulbarga), Karnataka 585102  
-📞 +91 94801 82920
+📞 +91 91088 76969
 
 ## 📄 License
 

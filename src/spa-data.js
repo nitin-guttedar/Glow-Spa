@@ -29,9 +29,9 @@ export const SPA_CONFIG = {
     lastAppointment: "09:00 PM"
   },
   contact: {
-    phone: "+91 94801 82920",
-    phoneDisplay: "+91 94801 82920",
-    whatsapp: "919480182920",
+    phone: "+91 91088 76969",
+    phoneDisplay: "+91 91088 76969",
+    whatsapp: "919108876969",
     email: "concierge@glowspa.in"
   }
 };

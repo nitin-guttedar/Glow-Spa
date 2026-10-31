@@ -307,7 +307,7 @@ function initStatsCounter() {
           const isPercent = target.includes('%');
           const isPlus = target.includes('+');
           const isRating = target.includes('.');
-          
+
           if (isRating) {
             const finalVal = parseFloat(target);
             let cur = 0;
@@ -578,14 +578,14 @@ function initServiceModal() {
           </ul>
 
           <div style="display: flex; flex-wrap: wrap; gap: 14px; border-top: 1px solid var(--border-subtle); padding-top: 24px;">
-            <a href="https://wa.me/919480182920?text=Hello%20Glow%20Spa%20Kalaburagi,%20I%20would%20like%20to%20reserve%20the%20${encodeURIComponent(data.title)}" 
+            <a href="https://wa.me/919108876969?text=Hello%20Glow%20Spa%20Kalaburagi,%20I%20would%20like%20to%20reserve%20the%20${encodeURIComponent(data.title)}" 
                target="_blank" 
                class="btn btn-whatsapp" 
                style="flex: 1;">
               <i class="fab fa-whatsapp"></i> Book via WhatsApp
             </a>
-            <a href="tel:+919480182920" class="btn btn-dark" style="flex: 1;">
-              <i class="fas fa-phone"></i> Call +91 94801 82920
+            <a href="tel:+919108876969" class="btn btn-dark" style="flex: 1;">
+              <i class="fas fa-phone"></i> Call +91 91088 76969
             </a>
           </div>
         </div>
@@ -630,7 +630,7 @@ function initGalleryLightbox() {
 }
 
 /* ==========================================================================
-   11. SMART BOOKING ENGINE -> WHATSAPP CONCIERGE (+91 94801 82920)
+   11. SMART BOOKING ENGINE -> WHATSAPP CONCIERGE (+91 91088 76969)
    ========================================================================== */
 function initBookingEngine() {
   const form = document.getElementById('spaBookingForm');
@@ -657,7 +657,7 @@ function initBookingEngine() {
 
     const message = `Hello Glow Spa Kalaburagi! 🌿%0A%0AI would like to book a therapy session:%0A%0A• *Client Name:* ${encodeURIComponent(name)}%0A• *Contact Phone:* ${encodeURIComponent(phone)}%0A• *Service Selected:* ${encodeURIComponent(service)}%0A• *Preferred Date:* ${encodeURIComponent(date)}%0A• *Preferred Time:* ${encodeURIComponent(time)}%0A• *Therapist Preference:* ${encodeURIComponent(therapist)}%0A• *Notes/Focus:* ${encodeURIComponent(notes)}%0A%0APlease confirm availability for me. Thank you!`;
 
-    const whatsappUrl = `https://wa.me/919480182920?text=${message}`;
+    const whatsappUrl = `https://wa.me/919108876969?text=${message}`;
     window.open(whatsappUrl, '_blank');
   });
 }
@@ -694,7 +694,7 @@ function initMobileNav() {
    ========================================================================== */
 function initSmoothScrollLinks() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#' || targetId === '') return;
 
