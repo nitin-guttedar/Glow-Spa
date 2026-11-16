@@ -27,3 +27,8 @@ dist-ssr
 shot_*.png
 snap_*.png
 
+# Local scratch and backups
+scratch/
+backup/
+
+
